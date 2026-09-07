@@ -98,6 +98,10 @@ class ClaimsDB:
         return con
 
     def snapshot_info(self) -> dict:
+        mtime_raw = os.path.getmtime(self.path)
+        cached = getattr(self, "_snapshot_cache", None)
+        if cached and cached[0] == mtime_raw:
+            return cached[1]
         con = self._connect()
         try:
             mtime = datetime.fromtimestamp(os.path.getmtime(self.path), tz=timezone.utc)
@@ -109,12 +113,14 @@ class ClaimsDB:
             }
         finally:
             con.close()
-        return {
+        info = {
             "snapshot_mtime": mtime.isoformat(timespec="seconds").replace("+00:00", "Z"),
             "latest_payment_date": latest_payment,
             "latest_claim_registration": latest_claim,
             "row_counts": counts,
         }
+        self._snapshot_cache = (mtime_raw, info)
+        return info
 
     def snapshot_label(self) -> str:
         info = self.snapshot_info()

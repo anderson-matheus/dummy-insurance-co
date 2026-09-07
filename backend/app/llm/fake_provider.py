@@ -83,7 +83,9 @@ class FakeProvider:
         return self.turns.pop(0) if len(self.turns) > 1 else self.turns[0]
 
     async def stream_turn(self, req: LLMRequest) -> AsyncIterator[LLMEvent]:
-        self.calls.append(req)
+        # snapshot: the orchestrator keeps mutating its message list after the call
+        self.calls.append(LLMRequest(system=req.system, messages=[dict(m) for m in req.messages], tools=list(req.tools),
+                                     max_tokens=req.max_tokens, tool_choice=req.tool_choice))
         turn = self._next(req)
         if isinstance(turn, Hang):
             await asyncio.sleep(turn.seconds)
