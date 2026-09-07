@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+*.egg-info/
+# Node
+node_modules/
+frontend/dist/
+# Runtime state
+var/
+*.db-wal
+*.db-shm
+# Secrets
+.env
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
