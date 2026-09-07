@@ -4,3 +4,4 @@ aiosqlite==0.22.1
 pydantic-settings==2.15.0
 openai==3.8.0
 pymupdf==1.28.2
+snowballstemmer==3.1.1

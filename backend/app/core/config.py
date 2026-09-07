@@ -38,7 +38,7 @@ class Settings(BaseSettings):
     cb_open_s: float = 30.0
 
     # --- Retrieval ---
-    retrieval_top_k: int = 6
+    retrieval_top_k: int = 8
     tool_search_top_k: int = 5
     history_turns: int = 4
 
