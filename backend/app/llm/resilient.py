@@ -179,9 +179,11 @@ class ResilientLLM:
     async def stream_turn(self, req: LLMRequest, budget: QuestionBudget) -> AsyncIterator[LLMEvent]:
         budget.check_before_call()
         attempt = 0
+        last_error: LLMError | None = None
         while True:
             if not self.breaker.allow():
-                raise self.breaker.short_circuit_error()
+                # opened by this question's own failures: report the real cause, not the breaker
+                raise last_error or self.breaker.short_circuit_error()
             started_stream = False
             try:
                 async with self._semaphore:
@@ -208,6 +210,7 @@ class ResilientLLM:
                 return
             except LLMError as err:
                 err.partial = started_stream
+                last_error = err
                 self.breaker.record_failure(err.code, err.retry_after_s)
                 if started_stream or not err.retryable or attempt >= self.settings.llm_max_retries:
                     raise

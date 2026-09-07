@@ -149,3 +149,18 @@ async def test_semaphore_serialises_calls():
     llm = ResilientLLM(P(), settings, clock=clock)
     await asyncio.gather(*(run(llm, llm.new_budget()) for _ in range(3)))
     assert peak == 1
+
+
+async def test_breaker_opened_by_own_retries_reports_the_real_cause():
+    clock = FakeClock()
+    breaker = CircuitBreaker(threshold=2, open_s=30, clock=clock)
+    provider = FakeProvider([Fail(LLMRateLimited(retry_after_s=1)), Fail(LLMRateLimited(retry_after_s=1)), answer("never")])
+    settings = Settings(llm_api_key="k", llm_max_retries=2, question_deadline_s=30)
+
+    async def sleep(s):
+        clock.t += s
+
+    llm = ResilientLLM(provider, settings, breaker=breaker, sleep=sleep, clock=clock, rng=lambda: 0.0)
+    with pytest.raises(LLMRateLimited):  # not the breaker's generic LLMUnavailable
+        await run(llm, llm.new_budget())
+    assert breaker.status()["circuit"] == "open" and len(provider.calls) == 2

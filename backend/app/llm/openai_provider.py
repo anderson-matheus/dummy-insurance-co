@@ -16,6 +16,7 @@ import time
 import uuid
 from typing import Any, AsyncIterable, AsyncIterator
 
+import httpx2
 import openai
 from openai import AsyncOpenAI, Timeout
 
@@ -96,6 +97,11 @@ def translate_error(exc: Exception) -> LLMError:
         return LLMUnavailable(detail=f"{exc.status_code} {exc.message}")
     if isinstance(exc, openai.APIStatusError):
         return LLMMisconfigured(detail=f"{exc.status_code} {exc.message}")
+    # transport errors raised while iterating the stream bypass the SDK's own exception types
+    if isinstance(exc, httpx2.TimeoutException):
+        return LLMTimeout(detail=f"{type(exc).__name__}: {exc}")
+    if isinstance(exc, httpx2.HTTPError):
+        return LLMUnavailable(detail=f"{type(exc).__name__}: {exc}")
     return LLMBadResponse(detail=f"{type(exc).__name__}: {exc}")
 
 

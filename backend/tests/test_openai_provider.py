@@ -129,3 +129,9 @@ def test_build_request_shapes():
     assert kw["extra_body"]["reasoning"] == {"effort": "low", "exclude": True}
     kw2 = build_request(LLMRequest(system="s", messages=[]), Settings(llm_model="openrouter/free", llm_reasoning_effort="low", llm_api_key="k"))
     assert "tools" not in kw2 and "extra_body" not in kw2
+
+
+def test_transport_errors_during_stream_are_translated():
+    req = httpx2.Request("POST", "https://x")
+    assert isinstance(translate_error(httpx2.RemoteProtocolError("peer closed connection", request=req)), LLMUnavailable)
+    assert isinstance(translate_error(httpx2.ReadTimeout("read timed out", request=req)), LLMTimeout)
