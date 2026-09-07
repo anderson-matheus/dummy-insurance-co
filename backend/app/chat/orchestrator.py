@@ -125,6 +125,7 @@ class QuestionRun:
     tool_calls: int = 0
     pii_hits: int = 0
     partial_text: str = ""
+    db_queried: bool = False
 
     def metrics(self) -> Metrics:
         b = self.budget
@@ -188,20 +189,31 @@ async def answer_question(question: str, history: list[Message], deps: Deps, run
     messages: list[dict[str, Any]] = _history_messages(history)
     messages.append({"role": "user", "content": render_user_block(question, registry.render_for_model(), freshness)})
 
-    tool_choice = "auto"
-    iterations = 0
-    repairs = 0
-    citation_repaired = False
-    db_queried = False
-
     def finish(content: str, status: str, refusal_code: str | None, cited: list[Citation]) -> Completed:
         scrubbed, hits = deps.scrubber.scrub(content)
         run.pii_hits += hits
         run.partial_text = scrubbed
         return Completed(
             content=scrubbed, status=status, refusal_code=refusal_code, citations=cited,
-            metrics=run.metrics(), provenance=_provenance(deps, run, cited, db_queried),
+            metrics=run.metrics(), provenance=_provenance(deps, run, cited, run.db_queried),
         )
+
+    try:
+        async for ev in _generate(question, messages, deps, run, streamer, finish):
+            yield ev
+    except BaseException:
+        # persist what the model had streamed (scrubbed), including the held-back tail
+        run.partial_text = deps.scrubber.scrub(streamer.raw)[0]
+        raise
+
+
+async def _generate(question: str, messages: list[dict[str, Any]], deps: Deps, run: QuestionRun, streamer: StreamScrubber, finish) -> AsyncIterator[Event]:
+    s = deps.settings
+    registry = run.registry
+    tool_choice = "auto"
+    iterations = 0
+    repairs = 0
+    citation_repaired = False
 
     while True:
         yield Stage("generating")
@@ -247,7 +259,7 @@ async def answer_question(question: str, history: list[Message], deps: Deps, run
                     yield finish(outcome.refusal.message, "refused", outcome.refusal.reason_code, [])
                     return
                 if tu.name == "query_claims_db" and not outcome.is_error:
-                    db_queried = True
+                    run.db_queried = True
                 if outcome.is_error:
                     repairs += 1
                 messages.append({"role": "tool", "tool_call_id": tu.id, "content": outcome.content})
@@ -289,6 +301,6 @@ async def answer_question(question: str, history: list[Message], deps: Deps, run
         run.partial_text = final
         yield Completed(
             content=final, status="complete", refusal_code=None, citations=citations,
-            metrics=run.metrics(), provenance=_provenance(deps, run, citations, db_queried),
+            metrics=run.metrics(), provenance=_provenance(deps, run, citations, run.db_queried),
         )
         return
