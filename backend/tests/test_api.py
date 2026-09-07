@@ -206,3 +206,14 @@ async def test_health_reports_open_circuit(index_path, tmp_path):
         calls = len(provider.calls)
         r = (await client.post(f"/api/conversations/{conv_id}/messages", json={"content": VIGENCIA, "client_message_id": "c9"})).json()
         assert r["assistant_message"]["error"]["code"] == "LLM_UNAVAILABLE" and len(provider.calls) == calls
+
+
+async def test_json_error_carries_retry_after(index_path, tmp_path):
+    from app.core.errors import LLMRateLimited
+
+    provider = FakeProvider([Fail(LLMRateLimited(retry_after_s=42))])
+    async with make_client(provider, index_path, tmp_path) as (client, _):
+        conv_id = (await client.post("/api/conversations", json={})).json()["id"]
+        r = (await client.post(f"/api/conversations/{conv_id}/messages", json={"content": VIGENCIA, "client_message_id": "rl"})).json()
+        err = r["assistant_message"]["error"]
+        assert err["code"] == "LLM_RATE_LIMITED" and err["retry_after_s"] == 42 and err["retryable"] is True

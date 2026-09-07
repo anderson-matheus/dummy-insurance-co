@@ -94,8 +94,11 @@ async def send_message(conversation_id: str, body: SendMessageIn, state: AppStat
     run = state.runs.get(reply.id) if dedup else _start_run(state, user, reply)
     if run is not None:
         await run.wait()
-    final = await state.repo.get_message(reply.id)
-    return SendMessageOut(user_message=message_out(user), assistant_message=message_out(final), deduplicated=dedup)
+    final = message_out(await state.repo.get_message(reply.id))
+    if run is not None and run.events and run.events[-1][0] == "error" and final.error is not None:
+        # the persisted row keeps only the code; carry the wait hint from the live failure
+        final.error.retry_after_s = run.events[-1][1].get("retry_after_s")
+    return SendMessageOut(user_message=message_out(user), assistant_message=final, deduplicated=dedup)
 
 
 @router.post("/stream")
