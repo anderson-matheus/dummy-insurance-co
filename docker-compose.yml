@@ -1,0 +1,33 @@
+services:
+  api:
+    build: ./backend
+    env_file: .env
+    environment:
+      CORPUS_DIR: /kit/corpus
+      CLAIMS_DB_PATH: /kit/claims.db
+      HISTORY_DB_PATH: /data/history.db
+      INDEX_DB_PATH: /data/index.db
+    volumes:
+      - ./data:/kit:ro
+      - appdata:/data
+    ports:
+      - "${API_PORT:-8000}:8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8000/api/health', timeout=4).status == 200 else 1)"]
+      interval: 15s
+      timeout: 5s
+      start_period: 60s
+      retries: 5
+    restart: unless-stopped
+
+  web:
+    build: ./frontend
+    ports:
+      - "${WEB_PORT:-8080}:80"
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  appdata:
