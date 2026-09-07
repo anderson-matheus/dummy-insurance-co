@@ -1,7 +1,11 @@
 services:
   api:
-    build: ./backend
-    env_file: .env
+    build:
+      context: ./backend
+      network: host   # some Docker hosts cannot resolve DNS on the default build network
+    env_file:
+      - path: ${ENV_FILE:-.env}   # docker compose --env-file .env.demo ... selects the demo settings
+        required: false
     environment:
       CORPUS_DIR: /kit/corpus
       CLAIMS_DB_PATH: /kit/claims.db
@@ -21,13 +25,28 @@ services:
     restart: unless-stopped
 
   web:
-    build: ./frontend
+    build:
+      context: ./frontend
+      network: host
     ports:
       - "${WEB_PORT:-8080}:80"
     depends_on:
       api:
         condition: service_healthy
     restart: unless-stopped
+
+  # Offline demo provider (no key, no quota): docker compose --profile demo up --build
+  # and set LLM_BASE_URL=http://stub-llm:8010/v1 in .env (any LLM_API_KEY value).
+  stub-llm:
+    profiles: ["demo"]
+    build:
+      context: ./backend
+      network: host
+    command: ["python", "-m", "scripts.stub_llm_server"]
+    healthcheck:
+      disable: true
+    ports:
+      - "${STUB_PORT:-8010}:8010"
 
 volumes:
   appdata:

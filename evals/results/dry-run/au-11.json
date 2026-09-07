@@ -1,0 +1,48 @@
+{
+  "id": "au-11",
+  "set": "authorial",
+  "question": "Qual é a alíquota de IOF sobre o prêmio do seguro auto?",
+  "expected": "Recusa: assunto ausente do corpus e do banco.",
+  "answer": "Não há fonte para isso.",
+  "status": "refused",
+  "refusal_code": "NO_SOURCE",
+  "citations": [],
+  "tool_calls": [],
+  "error": null,
+  "provenance": {
+    "documents_cited": [],
+    "database_queried": false,
+    "database_snapshot": null,
+    "index_built_at": "2026-09-07T21:11:31Z",
+    "sources_checked": [
+      "CG-AUTO-2024 v3.2 · §17 Pagamento do Prêmio · p. 12",
+      "CG-AUTO-2024 v3.2 · §7.1 Composição e Pagamento do Prêmio · p. 9",
+      "CG-AUTO-2024 v3.2 · §14 Perguntas Frequentes do Segurado · p. 12",
+      "CG-AUTO-2024 v3.2 · §2.3 Proposta e Declarações do Segurado · p. 2",
+      "CG-AUTO-2024 v3.2 · §13 Reintegração da Importância Segurada · p. 11",
+      "CG-RES-2024 v2.1 · §8 Pagamento do Prêmio · p. 2",
+      "CG-EMP-2024 v1.4 · §8 Pagamento do Prêmio · p. 2",
+      "CG-AUTO-2024 v3.2 · §23 Cancelamento e Rescisão · p. 13"
+    ]
+  },
+  "latency_ms": 15,
+  "metrics": {
+    "input_tokens": 120,
+    "output_tokens": 40,
+    "cost_usd": 0.0,
+    "llm_calls": 1,
+    "retries": 0,
+    "tool_calls": 1,
+    "pii_hits": 0,
+    "served_model": "fake-model"
+  },
+  "checks": [
+    {
+      "name": "refusal",
+      "passed": true,
+      "detail": "status=refused"
+    }
+  ],
+  "passed": true,
+  "ran_at": "2026-09-07T22:00:36+00:00"
+}

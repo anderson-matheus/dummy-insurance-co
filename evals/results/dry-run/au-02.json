@@ -1,0 +1,81 @@
+{
+  "id": "au-02",
+  "set": "authorial",
+  "question": "Qual era o prazo de aviso de sinistro na versão 1.0 do NI-014?",
+  "expected": "5 dias úteis, deixando claro que a versão 1.0 está superada pela 2.0 (3 dias úteis).",
+  "answer": "Resposta simulada [1].",
+  "status": "complete",
+  "refusal_code": null,
+  "citations": [
+    {
+      "ordinal": 1,
+      "source_type": "document",
+      "doc_code": "NI-014",
+      "doc_title": "Normativo Interno de Prazos de Comunicação de Sinistro",
+      "doc_version": "1.0",
+      "doc_status": "superada",
+      "section": "§3 Prazo de Comunicação",
+      "page": 1,
+      "chunk_id": "NI-014:1.0:3",
+      "snippet": "O segurado deve comunicar a ocorrência do sinistro à Seguradora no prazo de 5 dias úteis, contados da data em que tomar conhecimento do evento.\nO prazo aqui fixado aplica-se de forma uniforme a todos os produtos, independentemente do canal utilizado para o aviso.",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    }
+  ],
+  "tool_calls": [],
+  "error": null,
+  "provenance": {
+    "documents_cited": [
+      {
+        "doc_code": "NI-014",
+        "doc_title": "Normativo Interno de Prazos de Comunicação de Sinistro",
+        "version": "1.0",
+        "status": "superada"
+      }
+    ],
+    "database_queried": false,
+    "database_snapshot": null,
+    "index_built_at": "2026-09-07T21:11:31Z",
+    "sources_checked": [
+      "NI-014 v1.0 · §3 Prazo de Comunicação · p. 1",
+      "NI-014 v1.0 · §4 Forma de Comunicação · p. 1",
+      "NI-014 v2.0 · §3 Prazo de Comunicação · p. 1",
+      "MAN-SIN-2025 v2.0 · §3 Aviso de Sinistro · p. 2",
+      "NI-014 v1.0 · §2 Definições · p. 1",
+      "NI-014 v1.0 · §1 Objeto · p. 1",
+      "NI-014 v1.0 · §7 Contagem do Prazo · p. 1",
+      "NI-014 v2.0 · §4 Forma de Comunicação · p. 1"
+    ]
+  },
+  "latency_ms": 17,
+  "metrics": {
+    "input_tokens": 120,
+    "output_tokens": 40,
+    "cost_usd": 0.0,
+    "llm_calls": 1,
+    "retries": 0,
+    "tool_calls": 0,
+    "pii_hits": 0,
+    "served_model": "fake-model"
+  },
+  "checks": [
+    {
+      "name": "contains any of ['5 dias', 'cinco dias']",
+      "passed": false,
+      "detail": "not found"
+    },
+    {
+      "name": "contains any of ['superad', 'substitu', '2.0', 'não está mais', 'deixou de']",
+      "passed": false,
+      "detail": "not found"
+    },
+    {
+      "name": "cites NI-014",
+      "passed": true,
+      "detail": "NI-014"
+    }
+  ],
+  "passed": false,
+  "ran_at": "2026-09-07T22:00:36+00:00"
+}

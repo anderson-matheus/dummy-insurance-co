@@ -1,0 +1,81 @@
+{
+  "id": "gs-005",
+  "set": "golden",
+  "question": "Qual é o prazo de regulação para sinistros de roubo e furto de veículo?",
+  "expected": "O prazo de regulação é de 45 dias corridos.",
+  "answer": "Resposta simulada [1].",
+  "status": "complete",
+  "refusal_code": null,
+  "citations": [
+    {
+      "ordinal": 1,
+      "source_type": "document",
+      "doc_code": "MAN-SIN-2025",
+      "doc_title": "Manual de Regulação de Sinistros",
+      "doc_version": "2.0",
+      "doc_status": "vigente",
+      "section": "§19 Regulação de Sinistros de Automóvel",
+      "page": 6,
+      "chunk_id": "MAN-SIN-2025:2.0:25",
+      "snippet": "Nos sinistros de colisão, a regulação verifica a dinâmica do evento, a compatibilidade dos danos com o relato e a existência de terceiros envolvidos. A vistoria do veículo é regra, salvo dano de pequena monta com documentação suficiente. Em danos parciais, a indenização observa o custo de reparo, deduzida a franquia, até o limite da cobertura de Casco.\nNos sinistros de roubo e furto, a regulação e…",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    }
+  ],
+  "tool_calls": [],
+  "error": null,
+  "provenance": {
+    "documents_cited": [
+      {
+        "doc_code": "MAN-SIN-2025",
+        "doc_title": "Manual de Regulação de Sinistros",
+        "version": "2.0",
+        "status": "vigente"
+      }
+    ],
+    "database_queried": false,
+    "database_snapshot": null,
+    "index_built_at": "2026-09-07T21:11:31Z",
+    "sources_checked": [
+      "MAN-SIN-2025 v2.0 · §19 Regulação de Sinistros de Automóvel · p. 6",
+      "FAQ-SIN-2025 v5.0 · §3 Perguntas e Respostas · p. 1",
+      "MAN-SIN-2025 v2.0 · §4 Prazos de Regulação · p. 2",
+      "MAN-SIN-2025 v2.0 · §31 Anexo A - Exemplos Resolvidos de Regulação · p. 10",
+      "CG-RES-2024 v2.1 · §3.3 Roubo e Furto Qualificado de Bens · p. 1",
+      "CG-AUTO-2024 v3.2 · §4.1 Agravamento do Risco · p. 6",
+      "CG-AUTO-2024 v3.2 · §5.2 Regulação do Sinistro · p. 8",
+      "CG-AUTO-2024 v3.2 · §14 Perguntas Frequentes do Segurado · p. 11"
+    ]
+  },
+  "latency_ms": 18,
+  "metrics": {
+    "input_tokens": 120,
+    "output_tokens": 40,
+    "cost_usd": 0.0,
+    "llm_calls": 1,
+    "retries": 0,
+    "tool_calls": 0,
+    "pii_hits": 0,
+    "served_model": "fake-model"
+  },
+  "checks": [
+    {
+      "name": "contains any of ['45 dias']",
+      "passed": false,
+      "detail": "not found"
+    },
+    {
+      "name": "cites MAN-SIN-2025",
+      "passed": true,
+      "detail": "MAN-SIN-2025"
+    },
+    {
+      "name": "no '30 dias' unless 'base'",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "passed": false,
+  "ran_at": "2026-09-07T22:00:35+00:00"
+}

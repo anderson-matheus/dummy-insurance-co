@@ -1,0 +1,76 @@
+{
+  "id": "au-14",
+  "set": "authorial",
+  "question": "Qual o prazo de regulação de um sinistro de incêndio residencial?",
+  "expected": "60 dias corridos (MAN-SIN-2025 Tabela 1).",
+  "answer": "Resposta simulada [1].",
+  "status": "complete",
+  "refusal_code": null,
+  "citations": [
+    {
+      "ordinal": 1,
+      "source_type": "document",
+      "doc_code": "MAN-SIN-2025",
+      "doc_title": "Manual de Regulação de Sinistros",
+      "doc_version": "2.0",
+      "doc_status": "vigente",
+      "section": "§4 Prazos de Regulação",
+      "page": 2,
+      "chunk_id": "MAN-SIN-2025:2.0:7",
+      "snippet": "O prazo de regulação é o período máximo para a Seguradora concluir a análise e efetuar o pagamento ou a negativa, contado da entrega da documentação completa. Os prazos por tipo de sinistro constam da tabela abaixo. O prazo base legal é de 30 dias corridos, podendo ser suspenso para solicitação de documentos complementares, hipótese em que a contagem é retomada a partir do atendimento da solicitaç…",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    }
+  ],
+  "tool_calls": [],
+  "error": null,
+  "provenance": {
+    "documents_cited": [
+      {
+        "doc_code": "MAN-SIN-2025",
+        "doc_title": "Manual de Regulação de Sinistros",
+        "version": "2.0",
+        "status": "vigente"
+      }
+    ],
+    "database_queried": false,
+    "database_snapshot": null,
+    "index_built_at": "2026-09-07T21:11:31Z",
+    "sources_checked": [
+      "MAN-SIN-2025 v2.0 · §4 Prazos de Regulação · p. 2",
+      "MAN-SIN-2025 v2.0 · §21 Regulação de Sinistros Empresariais · p. 7",
+      "MAN-SIN-2025 v2.0 · §20 Regulação de Sinistros Residenciais · p. 7",
+      "CG-RES-2024 v2.1 · §3 Coberturas · p. 1",
+      "CG-RES-2024 v2.1 · §5 Obrigações do Segurado · p. 1",
+      "NI-022 v1.3 · §3 Tabela de Franquias · p. 1",
+      "MAN-SIN-2025 v2.0 · §8 Documentação por Tipo de Sinistro · p. 4",
+      "MAN-SIN-2025 v2.0 · §19 Regulação de Sinistros de Automóvel · p. 6"
+    ]
+  },
+  "latency_ms": 15,
+  "metrics": {
+    "input_tokens": 120,
+    "output_tokens": 40,
+    "cost_usd": 0.0,
+    "llm_calls": 1,
+    "retries": 0,
+    "tool_calls": 0,
+    "pii_hits": 0,
+    "served_model": "fake-model"
+  },
+  "checks": [
+    {
+      "name": "contains any of ['60 dias']",
+      "passed": false,
+      "detail": "not found"
+    },
+    {
+      "name": "cites MAN-SIN-2025",
+      "passed": true,
+      "detail": "MAN-SIN-2025"
+    }
+  ],
+  "passed": false,
+  "ran_at": "2026-09-07T22:00:36+00:00"
+}

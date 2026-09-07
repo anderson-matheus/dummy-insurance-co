@@ -1,0 +1,118 @@
+{
+  "id": "gs-007",
+  "set": "golden",
+  "question": "No sinistro SIN-2025-004512, o valor pago respeitou o limite da cobertura de Danos Materiais a Terceiros do Seguro Auto?",
+  "expected": "Sim. O valor pago foi R$ 100.000,00, exatamente o limite da cobertura de Danos Materiais a Terceiros (RCF-DM) do Seguro Auto (R$ 100.000,00). O valor reivindicado era R$ 120.000,00, acima do limite, por isso foi pago o teto da cobertura.",
+  "answer": "Conforme o banco de sinistros [10] e a tabela de coberturas [1].",
+  "status": "complete",
+  "refusal_code": null,
+  "citations": [
+    {
+      "ordinal": 1,
+      "source_type": "document",
+      "doc_code": "CG-AUTO-2024",
+      "doc_title": "Condições Gerais do Seguro Auto",
+      "doc_version": "3.2",
+      "doc_status": "vigente",
+      "section": "§3.2 Responsabilidade Civil Facultativa por Danos Materiais (RCF-DM)",
+      "page": 4,
+      "chunk_id": "CG-AUTO-2024:3.2:11",
+      "snippet": "A cobertura de RCF-DM reembolsa as quantias pelas quais o Segurado vier a ser responsável civilmente, em sentença judicial transitada em julgado ou em acordo autorizado pela Seguradora, por danos materiais involuntariamente causados a terceiros em decorrência do uso do veículo segurado. O limite máximo de indenização desta cobertura é o indicado na Tabela 1, e a ele se sujeita o total de indenizaç…",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    },
+    {
+      "ordinal": 10,
+      "source_type": "database",
+      "doc_code": null,
+      "doc_title": "Banco de sinistros",
+      "doc_version": null,
+      "doc_status": null,
+      "section": null,
+      "page": null,
+      "chunk_id": null,
+      "snippet": "120000.00 | 100000.00",
+      "sql": "SELECT c.claim_amount, p.paid_amount FROM claims c JOIN payments p ON p.claim_id=c.claim_id WHERE c.claim_number='SIN-2025-004512'",
+      "row_count": 1,
+      "data_snapshot": "dados até 2026-02-11 (arquivo de 2026-09-07)"
+    }
+  ],
+  "tool_calls": [
+    {
+      "name": "query_claims_db",
+      "sql": "SELECT c.claim_amount, p.paid_amount FROM claims c JOIN payments p ON p.claim_id=c.claim_id WHERE c.claim_number='SIN-2025-004512'"
+    }
+  ],
+  "error": null,
+  "provenance": {
+    "documents_cited": [
+      {
+        "doc_code": "CG-AUTO-2024",
+        "doc_title": "Condições Gerais do Seguro Auto",
+        "version": "3.2",
+        "status": "vigente"
+      }
+    ],
+    "database_queried": true,
+    "database_snapshot": "dados até 2026-02-11 (arquivo de 2026-09-07)",
+    "index_built_at": "2026-09-07T21:11:31Z",
+    "sources_checked": [
+      "CG-AUTO-2024 v3.2 · §3.2 Responsabilidade Civil Facultativa por Danos Materiais (RCF-DM) · p. 4",
+      "CG-AUTO-2024 v3.2 · §3 Coberturas · p. 3",
+      "CG-AUTO-2024 v3.2 · §3.3 Responsabilidade Civil Facultativa por Danos Corporais (RCF-DC) · p. 5",
+      "ATA-COM-2025-04 vfinal · §5 Deliberações · p. 1",
+      "MAN-SIN-2025 v2.0 · §19 Regulação de Sinistros de Automóvel · p. 6",
+      "MAN-SIN-2025 v2.0 · §4 Prazos de Regulação · p. 2",
+      "MAN-SIN-2025 v2.0 · §31 Anexo A - Exemplos Resolvidos de Regulação · p. 11",
+      "CG-AUTO-2024 v3.2 · §3.4 Danos Morais a Terceiros · p. 5",
+      "GLOS-2024 v1.1 · §2 Termos · p. 1",
+      "Banco de sinistros · 1 linha(s)"
+    ]
+  },
+  "latency_ms": 30,
+  "metrics": {
+    "input_tokens": 240,
+    "output_tokens": 80,
+    "cost_usd": 0.0,
+    "llm_calls": 2,
+    "retries": 0,
+    "tool_calls": 1,
+    "pii_hits": 0,
+    "served_model": "fake-model"
+  },
+  "checks": [
+    {
+      "name": "contains any of ['100.000']",
+      "passed": false,
+      "detail": "not found"
+    },
+    {
+      "name": "contains any of ['limite', 'teto']",
+      "passed": false,
+      "detail": "not found"
+    },
+    {
+      "name": "cites CG-AUTO-2024",
+      "passed": true,
+      "detail": "CG-AUTO-2024"
+    },
+    {
+      "name": "cites a database query",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "SQL uses paid_amount",
+      "passed": true,
+      "detail": "SELECT c.claim_amount, p.paid_amount FROM claims c JOIN payments p ON p.claim_id=c.claim_id WHERE c.claim_number='SIN-20"
+    },
+    {
+      "name": "no '120\\.000' unless 'reivindic'",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "passed": false,
+  "ran_at": "2026-09-07T22:00:36+00:00"
+}

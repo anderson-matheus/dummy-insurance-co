@@ -1,0 +1,77 @@
+{
+  "id": "au-03",
+  "set": "authorial",
+  "question": "Qual o limite da cobertura de Danos Corporais a Terceiros (RCF-DC) no Seguro Auto?",
+  "expected": "R$ 150.000,00 (Tabela 1 das CG Auto); não confundir com RCF-DM.",
+  "answer": "Resposta simulada [1].",
+  "status": "complete",
+  "refusal_code": null,
+  "citations": [
+    {
+      "ordinal": 1,
+      "source_type": "document",
+      "doc_code": "CG-AUTO-2024",
+      "doc_title": "Condições Gerais do Seguro Auto",
+      "doc_version": "3.2",
+      "doc_status": "vigente",
+      "section": "§3.3 Responsabilidade Civil Facultativa por Danos Corporais (RCF-DC)",
+      "page": 5,
+      "chunk_id": "CG-AUTO-2024:3.2:12",
+      "snippet": "A cobertura de RCF-DC reembolsa as quantias pelas quais o Segurado vier a ser responsável civilmente por danos corporais involuntariamente causados a terceiros em decorrência do uso do veículo segurado, observado o limite máximo de indenização indicado na Tabela 1. Incluem-se despesas médico-hospitalares, indenizações por incapacidade e demais verbas de natureza corporal reconhecidas judicialmente…",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    }
+  ],
+  "tool_calls": [],
+  "error": null,
+  "provenance": {
+    "documents_cited": [
+      {
+        "doc_code": "CG-AUTO-2024",
+        "doc_title": "Condições Gerais do Seguro Auto",
+        "version": "3.2",
+        "status": "vigente"
+      }
+    ],
+    "database_queried": false,
+    "database_snapshot": null,
+    "index_built_at": "2026-09-07T21:11:31Z",
+    "sources_checked": [
+      "CG-AUTO-2024 v3.2 · §3.3 Responsabilidade Civil Facultativa por Danos Corporais (RCF-DC) · p. 5",
+      "CG-AUTO-2024 v3.2 · §3 Coberturas · p. 3",
+      "CG-AUTO-2024 v3.2 · §3.2 Responsabilidade Civil Facultativa por Danos Materiais (RCF-DM) · p. 4",
+      "FAQ-SIN-2025 v5.0 · §3 Perguntas e Respostas · p. 1",
+      "MAN-SIN-2025 v2.0 · §19 Regulação de Sinistros de Automóvel · p. 6",
+      "MAN-SIN-2025 v2.0 · §4 Prazos de Regulação · p. 2",
+      "CG-AUTO-2024 v3.2 · §3.4 Danos Morais a Terceiros · p. 5",
+      "FAQ-SIN-2025 v5.0 · §3 Perguntas e Respostas · p. 1",
+      "GLOS-2024 v1.1 · §2 Termos · p. 1"
+    ]
+  },
+  "latency_ms": 20,
+  "metrics": {
+    "input_tokens": 120,
+    "output_tokens": 40,
+    "cost_usd": 0.0,
+    "llm_calls": 1,
+    "retries": 0,
+    "tool_calls": 0,
+    "pii_hits": 0,
+    "served_model": "fake-model"
+  },
+  "checks": [
+    {
+      "name": "contains any of ['150.000']",
+      "passed": false,
+      "detail": "not found"
+    },
+    {
+      "name": "cites CG-AUTO-2024",
+      "passed": true,
+      "detail": "CG-AUTO-2024"
+    }
+  ],
+  "passed": false,
+  "ran_at": "2026-09-07T22:00:36+00:00"
+}

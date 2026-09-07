@@ -1,0 +1,76 @@
+{
+  "id": "gs-001",
+  "set": "golden",
+  "question": "Qual é o prazo de vigência padrão de uma apólice de Seguro Auto?",
+  "expected": "A vigência padrão é de 12 meses.",
+  "answer": "Resposta simulada [1].",
+  "status": "complete",
+  "refusal_code": null,
+  "citations": [
+    {
+      "ordinal": 1,
+      "source_type": "document",
+      "doc_code": "CG-AUTO-2024",
+      "doc_title": "Condições Gerais do Seguro Auto",
+      "doc_version": "3.2",
+      "doc_status": "vigente",
+      "section": "§2.1 Vigência",
+      "page": 2,
+      "chunk_id": "CG-AUTO-2024:3.2:4",
+      "snippet": "A vigência padrão de uma apólice de Seguro Auto é de 12 meses, contados a partir das 24 horas da data de início informada na apólice até as 24 horas da data de término. A renovação não é automática e depende de manifestação expressa das partes. A cobertura somente produz efeitos para eventos ocorridos dentro do período de vigência, ressalvadas as disposições legais aplicáveis.\nQuando a apólice for…",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    }
+  ],
+  "tool_calls": [],
+  "error": null,
+  "provenance": {
+    "documents_cited": [
+      {
+        "doc_code": "CG-AUTO-2024",
+        "doc_title": "Condições Gerais do Seguro Auto",
+        "version": "3.2",
+        "status": "vigente"
+      }
+    ],
+    "database_queried": false,
+    "database_snapshot": null,
+    "index_built_at": "2026-09-07T21:11:31Z",
+    "sources_checked": [
+      "CG-AUTO-2024 v3.2 · §2.1 Vigência · p. 2",
+      "CG-EMP-2024 v1.4 · §2 Vigência · p. 1",
+      "CG-RES-2024 v2.1 · §2 Vigência · p. 1",
+      "CG-AUTO-2024 v3.2 · §2.5 Documentos que Integram o Contrato · p. 3",
+      "CG-AUTO-2024 v3.2 · §7.3 Reajuste e Atualização de Valores · p. 9",
+      "CG-AUTO-2024 v3.2 · §20 Concorrência de Apólices · p. 13",
+      "NI-014 v2.0 · §10 Vigência · p. 2",
+      "NI-014 v2.0 · §7 Disposições Transitórias · p. 1"
+    ]
+  },
+  "latency_ms": 31,
+  "metrics": {
+    "input_tokens": 120,
+    "output_tokens": 40,
+    "cost_usd": 0.0,
+    "llm_calls": 1,
+    "retries": 0,
+    "tool_calls": 0,
+    "pii_hits": 0,
+    "served_model": "fake-model"
+  },
+  "checks": [
+    {
+      "name": "contains any of ['12 meses', 'doze meses']",
+      "passed": false,
+      "detail": "not found"
+    },
+    {
+      "name": "cites CG-AUTO-2024",
+      "passed": true,
+      "detail": "CG-AUTO-2024"
+    }
+  ],
+  "passed": false,
+  "ran_at": "2026-09-07T22:00:14+00:00"
+}

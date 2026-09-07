@@ -1,0 +1,68 @@
+digraph architecture {
+  rankdir=LR;
+  graph [fontname="Helvetica", fontsize=11, labelloc=t, label="Dummy Insurance Co. — claims assistant PoC: components and the flow from question to answer", pad=0.4, nodesep=0.35, ranksep=0.6];
+  node  [fontname="Helvetica", fontsize=10, shape=box, style="rounded,filled", fillcolor="#ffffff", color="#4b5563"];
+  edge  [fontname="Helvetica", fontsize=9, color="#4b5563"];
+
+  subgraph cluster_browser {
+    label="Browser (React + TypeScript)"; style="rounded,filled"; fillcolor="#eef2ff"; color="#6366f1";
+    ui  [label="Chat UI\nstates: loading · streaming · complete\nrefusal · error · cancelled · interrupted"];
+    sse [label="SSE client (fetch + ReadableStream)\nabort / stall watchdog\nretry reuses client_message_id"];
+    health_poll [label="Health polling\ndegraded-provider banner"];
+  }
+
+  subgraph cluster_web {
+    label="web container"; style="rounded,filled"; fillcolor="#f3f4f6"; color="#9ca3af";
+    nginx [label="nginx\nstatic SPA + /api proxy\n(proxy_buffering off for SSE)"];
+  }
+
+  subgraph cluster_api {
+    label="api container (FastAPI, Python 3.11)"; style="rounded,filled"; fillcolor="#ecfdf5"; color="#10b981";
+    routes [label="HTTP API\n/conversations · /messages (JSON | SSE)\n/cancel · /health\nerror envelope + correlation id"];
+    runs   [label="RunRegistry\ndetached task per question\nreplayable event feed"];
+    hist   [label="History repo (SQLite)\nconversations · messages\ncitations · metrics\nidempotent client_message_id"];
+    orch   [label="Orchestrator\n1 retrieve → 2 generate with tools\n3 validate [n] citations → 4 scrub PII\nprovenance + metrics"];
+    retr   [label="Retriever\nBM25 over SQLite FTS5\ncoverage/title rescoring\nversion + product boosts\nreferenced-table pull-through"];
+    sqltool [label="Claims DB tool\nread-only, SQLite authorizer\nPII columns denied · row cap · timeout"];
+    pii    [label="PII scrubber\nCPF/phone/e-mail patterns\npolicyholder-name blocklist\nstreaming holdback"];
+    resil  [label="ResilientLLM\ndeadline · bounded retries (Retry-After)\ncircuit breaker · concurrency\ncost/token budget"];
+    prov   [label="OpenAI-compatible provider\nstreaming chunk accumulator\nerror translation (no internals leak)"];
+    ingest [label="Ingestion (startup / CLI)\nPyMuPDF → sections, tables+footnotes\nheaders/footers stripped\nversions vigente/superada · PII masked"];
+  }
+
+  subgraph cluster_data {
+    label="data"; style="rounded,filled"; fillcolor="#fffbeb"; color="#f59e0b";
+    corpus  [label="13 PDFs\n(condições gerais, manuais,\nnormativos, FAQ, ata, política)", shape=note];
+    claims  [label="claims.db (read-only)\npolicyholders · policies\nclaims · payments", shape=cylinder];
+    index   [label="index.db\nchunks + FTS5 + manifest", shape=cylinder];
+    histdb  [label="history.db", shape=cylinder];
+  }
+
+  llm [label="External LLM API\n(OpenRouter free models,\nany OpenAI-compatible endpoint)", shape=box3d, fillcolor="#fee2e2", color="#ef4444"];
+
+  ui -> sse [label="1 question"];
+  sse -> nginx [label="POST …/messages/stream"];
+  health_poll -> nginx [label="GET /api/health", style=dashed];
+  nginx -> routes;
+  routes -> hist [label="2 persist user msg + pending reply"];
+  routes -> runs [label="3 start run"];
+  runs -> orch;
+  orch -> retr [label="4 top-k chunks"];
+  retr -> index;
+  orch -> resil [label="5 turn (tools: search_documents,\nquery_claims_db, refuse)"];
+  resil -> prov;
+  prov -> llm [label="6 streamed chat completion"];
+  orch -> sqltool [label="7 SELECT (if the model asks)"];
+  sqltool -> claims;
+  orch -> retr [label="7' extra search", style=dashed];
+  orch -> pii [label="8 scrub"];
+  orch -> hist [label="9 final answer + citations + metrics"];
+  hist -> histdb;
+  runs -> routes [label="events: stage · sources · delta · done | error"];
+  routes -> nginx;
+  nginx -> sse;
+  sse -> ui [label="10 progressive rendering,\ncitation chips, provenance footer"];
+  ingest -> corpus [dir=back];
+  ingest -> index;
+  ingest -> claims [label="names for masking", style=dashed];
+}

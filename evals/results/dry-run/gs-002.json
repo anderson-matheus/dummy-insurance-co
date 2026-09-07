@@ -1,0 +1,81 @@
+{
+  "id": "gs-002",
+  "set": "golden",
+  "question": "O que o analista deve fazer ao identificar indícios de fraude em um sinistro?",
+  "expected": "Deve suspender o prazo de regulação, registrar os indícios e encaminhar o caso ao setor de investigação (SIU) para apuração, sem negar o sinistro por conta própria.",
+  "answer": "Resposta simulada [1].",
+  "status": "complete",
+  "refusal_code": null,
+  "citations": [
+    {
+      "ordinal": 1,
+      "source_type": "document",
+      "doc_code": "MAN-SIN-2025",
+      "doc_title": "Manual de Regulação de Sinistros",
+      "doc_version": "2.0",
+      "doc_status": "vigente",
+      "section": "§6.2 Procedimento do analista",
+      "page": 3,
+      "chunk_id": "MAN-SIN-2025:2.0:11",
+      "snippet": "Ao identificar indícios de fraude, o analista deve suspender o prazo de regulação, registrar os indícios no sistema e encaminhar o caso ao setor de investigação (SIU) para apuração. O analista não deve negar o sinistro por conta própria; a negativa depende da conclusão da apuração pelo SIU. Toda a tramitação deve ser documentada, preservando-se a confidencialidade e a imparcialidade da apuração.",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    }
+  ],
+  "tool_calls": [],
+  "error": null,
+  "provenance": {
+    "documents_cited": [
+      {
+        "doc_code": "MAN-SIN-2025",
+        "doc_title": "Manual de Regulação de Sinistros",
+        "version": "2.0",
+        "status": "vigente"
+      }
+    ],
+    "database_queried": false,
+    "database_snapshot": null,
+    "index_built_at": "2026-09-07T21:11:31Z",
+    "sources_checked": [
+      "MAN-SIN-2025 v2.0 · §6.2 Procedimento do analista · p. 3",
+      "MAN-SIN-2025 v2.0 · §26 Checklist do Analista · p. 9",
+      "MAN-SIN-2025 v2.0 · §31 Anexo A - Exemplos Resolvidos de Regulação · p. 11",
+      "CG-AUTO-2024 v3.2 · §5.2 Regulação do Sinistro · p. 8",
+      "MAN-SIN-2025 v2.0 · §24 Comunicação de Negativa · p. 8",
+      "FAQ-SIN-2025 v5.0 · §3 Perguntas e Respostas · p. 1",
+      "ATA-COM-2025-04 vfinal · §6 Encaminhamentos · p. 1",
+      "GLOS-2024 v1.1 · §2 Termos · p. 1"
+    ]
+  },
+  "latency_ms": 25,
+  "metrics": {
+    "input_tokens": 120,
+    "output_tokens": 40,
+    "cost_usd": 0.0,
+    "llm_calls": 1,
+    "retries": 0,
+    "tool_calls": 0,
+    "pii_hits": 0,
+    "served_model": "fake-model"
+  },
+  "checks": [
+    {
+      "name": "contains any of ['SIU', 'investigação']",
+      "passed": false,
+      "detail": "not found"
+    },
+    {
+      "name": "contains any of ['suspend', 'registr']",
+      "passed": false,
+      "detail": "not found"
+    },
+    {
+      "name": "cites MAN-SIN-2025",
+      "passed": true,
+      "detail": "MAN-SIN-2025"
+    }
+  ],
+  "passed": false,
+  "ran_at": "2026-09-07T22:00:35+00:00"
+}

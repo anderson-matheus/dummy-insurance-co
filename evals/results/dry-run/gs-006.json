@@ -1,0 +1,86 @@
+{
+  "id": "gs-006",
+  "set": "golden",
+  "question": "Há isenção da franquia de danos elétricos quando o dano é causado por raio?",
+  "expected": "Sim. A franquia de Danos Elétricos não se aplica quando o sinistro decorre comprovadamente de descarga atmosférica (raio), mediante laudo técnico; nesse caso a indenização é integral.",
+  "answer": "Resposta simulada [1].",
+  "status": "complete",
+  "refusal_code": null,
+  "citations": [
+    {
+      "ordinal": 1,
+      "source_type": "document",
+      "doc_code": "CG-RES-2024",
+      "doc_title": "Condições Gerais do Seguro Residencial",
+      "doc_version": "2.1",
+      "doc_status": "vigente",
+      "section": "§3.1 Danos Elétricos",
+      "page": 1,
+      "chunk_id": "CG-RES-2024:2.1:4",
+      "snippet": "A cobertura de Danos Elétricos garante prejuízos causados a equipamentos e instalações por variações anormais de tensão, curto-circuito e calor gerado acidentalmente por eletricidade. A franquia consta da Tabela 1, observadas as exceções previstas no Normativo de Franquias (NI-022).",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    }
+  ],
+  "tool_calls": [],
+  "error": null,
+  "provenance": {
+    "documents_cited": [
+      {
+        "doc_code": "CG-RES-2024",
+        "doc_title": "Condições Gerais do Seguro Residencial",
+        "version": "2.1",
+        "status": "vigente"
+      }
+    ],
+    "database_queried": false,
+    "database_snapshot": null,
+    "index_built_at": "2026-09-07T21:11:31Z",
+    "sources_checked": [
+      "CG-RES-2024 v2.1 · §3.1 Danos Elétricos · p. 1",
+      "MAN-SIN-2025 v2.0 · §31 Anexo A - Exemplos Resolvidos de Regulação · p. 11",
+      "NI-022 v1.3 · §3 Tabela de Franquias · p. 1",
+      "MAN-SIN-2025 v2.0 · §20 Regulação de Sinistros Residenciais · p. 7",
+      "NI-022 v1.3 · §4 Casos Práticos · p. 2",
+      "FAQ-SIN-2025 v5.0 · §3 Perguntas e Respostas · p. 1",
+      "CG-RES-2024 v2.1 · §3 Coberturas · p. 1",
+      "ATA-COM-2025-04 vfinal · §5 Deliberações · p. 1"
+    ]
+  },
+  "latency_ms": 9,
+  "metrics": {
+    "input_tokens": 120,
+    "output_tokens": 40,
+    "cost_usd": 0.0,
+    "llm_calls": 1,
+    "retries": 0,
+    "tool_calls": 0,
+    "pii_hits": 0,
+    "served_model": "fake-model"
+  },
+  "checks": [
+    {
+      "name": "contains any of ['não se aplica', 'isenção', 'isenta', 'dispensada', 'não incide', 'não há franquia', 'sem franquia']",
+      "passed": false,
+      "detail": "not found"
+    },
+    {
+      "name": "contains any of ['raio', 'descarga atmosférica']",
+      "passed": false,
+      "detail": "not found"
+    },
+    {
+      "name": "contains any of ['laudo']",
+      "passed": false,
+      "detail": "not found"
+    },
+    {
+      "name": "cites NI-022",
+      "passed": false,
+      "detail": "CG-RES-2024"
+    }
+  ],
+  "passed": false,
+  "ran_at": "2026-09-07T22:00:35+00:00"
+}

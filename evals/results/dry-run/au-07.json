@@ -1,0 +1,76 @@
+{
+  "id": "au-07",
+  "set": "authorial",
+  "question": "Quantas diárias de carro reserva o Seguro Auto oferece?",
+  "expected": "15 diárias, quando contratada (CG Auto Tabela 1).",
+  "answer": "Resposta simulada [1].",
+  "status": "complete",
+  "refusal_code": null,
+  "citations": [
+    {
+      "ordinal": 1,
+      "source_type": "document",
+      "doc_code": "CG-AUTO-2024",
+      "doc_title": "Condições Gerais do Seguro Auto",
+      "doc_version": "3.2",
+      "doc_status": "vigente",
+      "section": "§3.6 Carro Reserva e Assistência 24 Horas",
+      "page": 5,
+      "chunk_id": "CG-AUTO-2024:3.2:15",
+      "snippet": "As coberturas de Carro Reserva e de Assistência 24 Horas, quando contratadas, disponibilizam serviços de mobilidade e socorro ao Segurado, conforme o número de diárias e o plano indicados na Tabela 1 e nas condições particulares. Tais serviços observam disponibilidade regional dos prestadores e não substituem as coberturas patrimoniais de Casco e de responsabilidade civil.",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    }
+  ],
+  "tool_calls": [],
+  "error": null,
+  "provenance": {
+    "documents_cited": [
+      {
+        "doc_code": "CG-AUTO-2024",
+        "doc_title": "Condições Gerais do Seguro Auto",
+        "version": "3.2",
+        "status": "vigente"
+      }
+    ],
+    "database_queried": false,
+    "database_snapshot": null,
+    "index_built_at": "2026-09-07T21:11:31Z",
+    "sources_checked": [
+      "CG-AUTO-2024 v3.2 · §3.6 Carro Reserva e Assistência 24 Horas · p. 5",
+      "FAQ-SIN-2025 v5.0 · §3 Perguntas e Respostas · p. 1",
+      "CG-AUTO-2024 v3.2 · §3 Coberturas · p. 3",
+      "CG-AUTO-2024 v3.2 · §10 Coberturas Adicionais · p. 10",
+      "POL-LGPD-2024 v2.0 · §4 Assistentes e Sistemas Automatizados · p. 1",
+      "CG-AUTO-2024 v3.2 · §3.2 Responsabilidade Civil Facultativa por Danos Materiais (RCF-DM) · p. 4",
+      "CG-AUTO-2024 v3.2 · §11 Inspeção e Vistoria Prévia · p. 11",
+      "CG-AUTO-2024 v3.2 · §3.5 Cobertura de Vidros · p. 5"
+    ]
+  },
+  "latency_ms": 16,
+  "metrics": {
+    "input_tokens": 120,
+    "output_tokens": 40,
+    "cost_usd": 0.0,
+    "llm_calls": 1,
+    "retries": 0,
+    "tool_calls": 0,
+    "pii_hits": 0,
+    "served_model": "fake-model"
+  },
+  "checks": [
+    {
+      "name": "contains any of ['15']",
+      "passed": false,
+      "detail": "not found"
+    },
+    {
+      "name": "cites CG-AUTO-2024",
+      "passed": true,
+      "detail": "CG-AUTO-2024"
+    }
+  ],
+  "passed": false,
+  "ran_at": "2026-09-07T22:00:36+00:00"
+}

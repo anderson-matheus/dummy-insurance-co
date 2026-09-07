@@ -1,0 +1,77 @@
+{
+  "id": "au-08",
+  "set": "authorial",
+  "question": "Quantos sinistros estão atualmente com status Em regulação?",
+  "expected": "1.987 sinistros (consulta ao banco).",
+  "answer": "Resposta simulada [1].",
+  "status": "complete",
+  "refusal_code": null,
+  "citations": [
+    {
+      "ordinal": 1,
+      "source_type": "document",
+      "doc_code": "MAN-SIN-2025",
+      "doc_title": "Manual de Regulação de Sinistros",
+      "doc_version": "2.0",
+      "doc_status": "vigente",
+      "section": "§33 Anexo C - Perguntas Frequentes Ampliadas",
+      "page": 12,
+      "chunk_id": "MAN-SIN-2025:2.0:43",
+      "snippet": "O segurado pode acompanhar o andamento do sinistro? Sim, pelos canais oficiais, informando o número do sinistro. O analista deve manter o status atualizado no sistema, o que viabiliza um acompanhamento transparente e reduz reclamações.\nÉ possível pagar parte da indenização e continuar apurando o restante? Em casos específicos, admite-se pagamento parcial incontroverso enquanto se apura a parcela c…",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    }
+  ],
+  "tool_calls": [],
+  "error": null,
+  "provenance": {
+    "documents_cited": [
+      {
+        "doc_code": "MAN-SIN-2025",
+        "doc_title": "Manual de Regulação de Sinistros",
+        "version": "2.0",
+        "status": "vigente"
+      }
+    ],
+    "database_queried": false,
+    "database_snapshot": null,
+    "index_built_at": "2026-09-07T21:11:31Z",
+    "sources_checked": [
+      "MAN-SIN-2025 v2.0 · §33 Anexo C - Perguntas Frequentes Ampliadas · p. 12",
+      "CG-AUTO-2024 v3.2 · §18 Atualização de Valores · p. 13",
+      "CG-RES-2024 v2.1 · §9 Atualização de Valores · p. 2",
+      "CG-EMP-2024 v1.4 · §9 Atualização de Valores · p. 2",
+      "CG-AUTO-2024 v3.2 · §7.3 Reajuste e Atualização de Valores · p. 9",
+      "MAN-SIN-2025 v2.0 · §29 Melhoria Contínua e Treinamento · p. 10",
+      "ATA-COM-2025-04 vfinal · §4 Casos em Análise · p. 1",
+      "CG-AUTO-2024 v3.2 · §1.1 Estrutura deste Documento · p. 1",
+      "CG-AUTO-2024 v3.2 · §3 Coberturas · p. 3"
+    ]
+  },
+  "latency_ms": 14,
+  "metrics": {
+    "input_tokens": 120,
+    "output_tokens": 40,
+    "cost_usd": 0.0,
+    "llm_calls": 1,
+    "retries": 0,
+    "tool_calls": 0,
+    "pii_hits": 0,
+    "served_model": "fake-model"
+  },
+  "checks": [
+    {
+      "name": "contains any of ['1987', '1.987']",
+      "passed": false,
+      "detail": "not found"
+    },
+    {
+      "name": "cites a database query",
+      "passed": false,
+      "detail": "no database citation"
+    }
+  ],
+  "passed": false,
+  "ran_at": "2026-09-07T22:00:36+00:00"
+}
