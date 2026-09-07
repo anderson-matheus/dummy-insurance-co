@@ -1,0 +1,132 @@
+{
+  "id": "gs-005",
+  "set": "golden",
+  "question": "Qual é o prazo de regulação para sinistros de roubo e furto de veículo?",
+  "expected": "O prazo de regulação é de 45 dias corridos.",
+  "answer": "O prazo de regulação para sinistros de roubo e furto de veículo é de 45 dias corridos, conforme consta na Tabela 1 do Manual de Regulação de Sinistros [3]. Este prazo é distinto do prazo base legal de 30 dias corridos e aplica-se especificamente a esse tipo de evento [1][2][4].",
+  "status": "complete",
+  "refusal_code": null,
+  "citations": [
+    {
+      "ordinal": 1,
+      "source_type": "document",
+      "doc_code": "MAN-SIN-2025",
+      "doc_title": "Manual de Regulação de Sinistros",
+      "doc_version": "2.0",
+      "doc_status": "vigente",
+      "section": "§19 Regulação de Sinistros de Automóvel",
+      "page": 6,
+      "chunk_id": "MAN-SIN-2025:2.0:25",
+      "snippet": "Nos sinistros de colisão, a regulação verifica a dinâmica do evento, a compatibilidade dos danos com o relato e a existência de terceiros envolvidos. A vistoria do veículo é regra, salvo dano de pequena monta com documentação suficiente. Em danos parciais, a indenização observa o custo de reparo, deduzida a franquia, até o limite da cobertura de Casco.\nNos sinistros de roubo e furto, a regulação e…",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    },
+    {
+      "ordinal": 2,
+      "source_type": "document",
+      "doc_code": "FAQ-SIN-2025",
+      "doc_title": "FAQ dos Analistas de Sinistros",
+      "doc_version": "5.0",
+      "doc_status": "vigente",
+      "section": "§3 Perguntas e Respostas",
+      "page": 1,
+      "chunk_id": "FAQ-SIN-2025:5.0:7",
+      "snippet": "Pergunta: qual o prazo de regulação de roubo de veículo? Resposta: consulte a tabela de prazos do Manual de Sinistros; roubo e furto de auto tem prazo próprio, diferente do prazo base.",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    },
+    {
+      "ordinal": 3,
+      "source_type": "document",
+      "doc_code": "MAN-SIN-2025",
+      "doc_title": "Manual de Regulação de Sinistros",
+      "doc_version": "2.0",
+      "doc_status": "vigente",
+      "section": "§4 Prazos de Regulação",
+      "page": 2,
+      "chunk_id": "MAN-SIN-2025:2.0:7",
+      "snippet": "O prazo de regulação é o período máximo para a Seguradora concluir a análise e efetuar o pagamento ou a negativa, contado da entrega da documentação completa. Os prazos por tipo de sinistro constam da tabela abaixo. O prazo base legal é de 30 dias corridos, podendo ser suspenso para solicitação de documentos complementares, hipótese em que a contagem é retomada a partir do atendimento da solicitaç…",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    },
+    {
+      "ordinal": 4,
+      "source_type": "document",
+      "doc_code": "MAN-SIN-2025",
+      "doc_title": "Manual de Regulação de Sinistros",
+      "doc_version": "2.0",
+      "doc_status": "vigente",
+      "section": "§31 Anexo A - Exemplos Resolvidos de Regulação",
+      "page": 10,
+      "chunk_id": "MAN-SIN-2025:2.0:37",
+      "snippet": "Exemplo 1 (colisão parcial de auto). O segurado avisa colisão com danos ao para-choque e à porta dianteira. A vistoria confirma a compatibilidade dos danos com o relato. Como se trata de dano parcial, a indenização corresponde ao custo de reparo, deduzida a franquia da cobertura de Casco. O prazo de regulação aplicável é o da colisão, conforme a Tabela 1. Registrada a decisão, o pagamento é lançad…",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    }
+  ],
+  "tool_calls": [],
+  "error": null,
+  "provenance": {
+    "documents_cited": [
+      {
+        "doc_code": "MAN-SIN-2025",
+        "doc_title": "Manual de Regulação de Sinistros",
+        "version": "2.0",
+        "status": "vigente"
+      },
+      {
+        "doc_code": "FAQ-SIN-2025",
+        "doc_title": "FAQ dos Analistas de Sinistros",
+        "version": "5.0",
+        "status": "vigente"
+      }
+    ],
+    "database_queried": false,
+    "database_snapshot": null,
+    "index_built_at": "2026-09-07T21:11:31Z",
+    "sources_checked": [
+      "MAN-SIN-2025 v2.0 · §19 Regulação de Sinistros de Automóvel · p. 6",
+      "FAQ-SIN-2025 v5.0 · §3 Perguntas e Respostas · p. 1",
+      "MAN-SIN-2025 v2.0 · §4 Prazos de Regulação · p. 2",
+      "MAN-SIN-2025 v2.0 · §31 Anexo A - Exemplos Resolvidos de Regulação · p. 10",
+      "CG-RES-2024 v2.1 · §3.3 Roubo e Furto Qualificado de Bens · p. 1",
+      "CG-AUTO-2024 v3.2 · §4.1 Agravamento do Risco · p. 6",
+      "CG-AUTO-2024 v3.2 · §5.2 Regulação do Sinistro · p. 8",
+      "CG-AUTO-2024 v3.2 · §14 Perguntas Frequentes do Segurado · p. 11"
+    ]
+  },
+  "latency_ms": 1922,
+  "metrics": {
+    "input_tokens": 3605,
+    "output_tokens": 81,
+    "cost_usd": 0.0,
+    "llm_calls": 1,
+    "retries": 0,
+    "tool_calls": 0,
+    "pii_hits": 0,
+    "served_model": "nvidia/nemotron-3-super-120b-a12b:free"
+  },
+  "checks": [
+    {
+      "name": "contains any of ['45 dias']",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cites MAN-SIN-2025",
+      "passed": true,
+      "detail": "FAQ-SIN-2025, MAN-SIN-2025"
+    },
+    {
+      "name": "no '30 dias' unless 'base'",
+      "passed": true,
+      "detail": "found"
+    }
+  ],
+  "passed": true,
+  "ran_at": "2026-09-07T22:14:49+00:00"
+}

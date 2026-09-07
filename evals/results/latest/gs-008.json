@@ -1,0 +1,48 @@
+{
+  "id": "gs-008",
+  "set": "golden",
+  "question": "Existe desconto para pagamento do prêmio à vista? De quanto?",
+  "expected": "Não há informação sobre desconto para pagamento à vista nas fontes disponíveis. A resposta correta é recusar e informar que o dado não consta no corpus.",
+  "answer": "Não há informações sobre descontos para pagamento do prêmio à vista nas fontes disponíveis.",
+  "status": "refused",
+  "refusal_code": "NO_SOURCE",
+  "citations": [],
+  "tool_calls": [],
+  "error": null,
+  "provenance": {
+    "documents_cited": [],
+    "database_queried": false,
+    "database_snapshot": null,
+    "index_built_at": "2026-09-07T21:11:31Z",
+    "sources_checked": [
+      "CG-AUTO-2024 v3.2 · §7.1 Composição e Pagamento do Prêmio · p. 9",
+      "CG-AUTO-2024 v3.2 · §17 Pagamento do Prêmio · p. 12",
+      "CG-RES-2024 v2.1 · §8 Pagamento do Prêmio · p. 2",
+      "CG-EMP-2024 v1.4 · §8 Pagamento do Prêmio · p. 2",
+      "MAN-SIN-2025 v2.0 · §7 Pagamento · p. 4",
+      "GLOS-2024 v1.1 · §2 Termos · p. 1",
+      "MAN-SIN-2025 v2.0 · §34 Anexo D - Boas Práticas de Registro no Sistema · p. 13",
+      "CG-EMP-2024 v1.4 · §4 Vistoria Prévia · p. 1"
+    ]
+  },
+  "latency_ms": 4370,
+  "metrics": {
+    "input_tokens": 9651,
+    "output_tokens": 120,
+    "cost_usd": 0.0,
+    "llm_calls": 3,
+    "retries": 0,
+    "tool_calls": 3,
+    "pii_hits": 0,
+    "served_model": "nvidia/nemotron-3-super-120b-a12b:free"
+  },
+  "checks": [
+    {
+      "name": "refusal",
+      "passed": true,
+      "detail": "status=refused"
+    }
+  ],
+  "passed": true,
+  "ran_at": "2026-09-07T22:15:16+00:00"
+}

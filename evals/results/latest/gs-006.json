@@ -1,0 +1,149 @@
+{
+  "id": "gs-006",
+  "set": "golden",
+  "question": "Há isenção da franquia de danos elétricos quando o dano é causado por raio?",
+  "expected": "Sim. A franquia de Danos Elétricos não se aplica quando o sinistro decorre comprovadamente de descarga atmosférica (raio), mediante laudo técnico; nesse caso a indenização é integral.",
+  "answer": "Sim, há isenção da franquia de danos elétricos quando o dano é causado por raio, desde que comprovado por laudo técnico. Conforme o Normativo de Franquias (NI-022), a franquia da cobertura de Danos Elétricos (Residencial) não se aplica quando o sinistro decorrer comprovadamente de descarga atmosférica (raio), mediante laudo técnico, hipótese em que a indenização é integral [3]. O Manual de Regulação de Sinistros confirma que, nesse caso, a franquia não se aplica e a indenização observa o limite da cobertura [2]. A FAQ dos analistas também afirma que a franquia é dispensada quando o dano decorre de raio comprovado por laudo [6]. A ata do comitê registra um caso em que a franquia foi dispensada e o pagamento integral foi aprovado [8]. Portanto, a isenção da franquia depende da comprovação técnica do raio.",
+  "status": "complete",
+  "refusal_code": null,
+  "citations": [
+    {
+      "ordinal": 2,
+      "source_type": "document",
+      "doc_code": "MAN-SIN-2025",
+      "doc_title": "Manual de Regulação de Sinistros",
+      "doc_version": "2.0",
+      "doc_status": "vigente",
+      "section": "§31 Anexo A - Exemplos Resolvidos de Regulação",
+      "page": 11,
+      "chunk_id": "MAN-SIN-2025:2.0:38",
+      "snippet": "Exemplo 3 (dano elétrico residencial por oscilação). O segurado relata queima de eletrodomésticos após oscilação de energia. A regulação analisa o laudo técnico e as notas dos bens. Aplica-se a franquia de danos elétricos prevista no Normativo de Franquias, por não se tratar de descarga atmosférica. A indenização observa o limite da cobertura, deduzida a franquia.\nExemplo 4 (dano elétrico residenc…",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    },
+    {
+      "ordinal": 3,
+      "source_type": "document",
+      "doc_code": "NI-022",
+      "doc_title": "Normativo de Franquias e Participação Obrigatória do Segurado",
+      "doc_version": "1.3",
+      "doc_status": "vigente",
+      "section": "§3 Tabela de Franquias",
+      "page": 1,
+      "chunk_id": "NI-022:1.3:3",
+      "snippet": "Tabela 1 - Franquias por produto e cobertura\nProduto | Cobertura | Franquia\nAuto | Casco (colisão) | R$ 3.500,00\nAuto | Cobertura de Vidros | R$ 150,00\nResidencial | Danos Elétricos (3) | R$ 250,00\nResidencial | Roubo e Furto Qualificado | R$ 400,00\nResidencial | Cobertura de Vidros | R$ 100,00\nResidencial | Vendaval, furacão e granizo | R$ 500,00\nEmpresarial | Incêndio e explosão | R$ 5.000,00\nEm…",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    },
+    {
+      "ordinal": 6,
+      "source_type": "document",
+      "doc_code": "FAQ-SIN-2025",
+      "doc_title": "FAQ dos Analistas de Sinistros",
+      "doc_version": "5.0",
+      "doc_status": "vigente",
+      "section": "§3 Perguntas e Respostas",
+      "page": 1,
+      "chunk_id": "FAQ-SIN-2025:5.0:9",
+      "snippet": "Pergunta: quando a franquia de danos elétricos é dispensada? Resposta: quando o dano decorre de raio comprovado por laudo; ver nota de rodapé do Normativo de Franquias.",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    },
+    {
+      "ordinal": 8,
+      "source_type": "document",
+      "doc_code": "ATA-COM-2025-04",
+      "doc_title": "Ata do Comitê de Sinistros Graves - Abril de 2025",
+      "doc_version": "final",
+      "doc_status": "vigente",
+      "section": "§5 Deliberações",
+      "page": 1,
+      "chunk_id": "ATA-COM-2025-04:final:5",
+      "snippet": "- Sinistro SIN-2025-004512: pagamento aprovado no limite da cobertura de danos a terceiros; valor reivindicado superior ao limite.\n- Sinistro SIN-2025-004701: mantida a negativa, aguardando conclusão da apuração de agravamento do risco pelo SIU.\n- Sinistro SIN-2025-004655: seguir regulação de roubo, observando o prazo próprio da tabela do Manual de Sinistros.\n- Sinistro SIN-2025-004610: em regulaç…",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    }
+  ],
+  "tool_calls": [],
+  "error": null,
+  "provenance": {
+    "documents_cited": [
+      {
+        "doc_code": "MAN-SIN-2025",
+        "doc_title": "Manual de Regulação de Sinistros",
+        "version": "2.0",
+        "status": "vigente"
+      },
+      {
+        "doc_code": "NI-022",
+        "doc_title": "Normativo de Franquias e Participação Obrigatória do Segurado",
+        "version": "1.3",
+        "status": "vigente"
+      },
+      {
+        "doc_code": "FAQ-SIN-2025",
+        "doc_title": "FAQ dos Analistas de Sinistros",
+        "version": "5.0",
+        "status": "vigente"
+      },
+      {
+        "doc_code": "ATA-COM-2025-04",
+        "doc_title": "Ata do Comitê de Sinistros Graves - Abril de 2025",
+        "version": "final",
+        "status": "vigente"
+      }
+    ],
+    "database_queried": false,
+    "database_snapshot": null,
+    "index_built_at": "2026-09-07T21:11:31Z",
+    "sources_checked": [
+      "CG-RES-2024 v2.1 · §3.1 Danos Elétricos · p. 1",
+      "MAN-SIN-2025 v2.0 · §31 Anexo A - Exemplos Resolvidos de Regulação · p. 11",
+      "NI-022 v1.3 · §3 Tabela de Franquias · p. 1",
+      "MAN-SIN-2025 v2.0 · §20 Regulação de Sinistros Residenciais · p. 7",
+      "NI-022 v1.3 · §4 Casos Práticos · p. 2",
+      "FAQ-SIN-2025 v5.0 · §3 Perguntas e Respostas · p. 1",
+      "CG-RES-2024 v2.1 · §3 Coberturas · p. 1",
+      "ATA-COM-2025-04 vfinal · §5 Deliberações · p. 1"
+    ]
+  },
+  "latency_ms": 4951,
+  "metrics": {
+    "input_tokens": 3555,
+    "output_tokens": 215,
+    "cost_usd": 0.0,
+    "llm_calls": 1,
+    "retries": 0,
+    "tool_calls": 0,
+    "pii_hits": 0,
+    "served_model": "nvidia/nemotron-3-super-120b-a12b:free"
+  },
+  "checks": [
+    {
+      "name": "contains any of ['não se aplica', 'isenção', 'isenta', 'dispensada', 'não incide', 'não há franquia', 'sem franquia']",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "contains any of ['raio', 'descarga atmosférica']",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "contains any of ['laudo']",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cites NI-022",
+      "passed": true,
+      "detail": "ATA-COM-2025-04, FAQ-SIN-2025, MAN-SIN-2025, NI-022"
+    }
+  ],
+  "passed": true,
+  "ran_at": "2026-09-07T22:14:57+00:00"
+}

@@ -222,3 +222,19 @@ async def test_history_is_passed_as_plain_turns(knowledge):
     assert sent[0] == {"role": "user", "content": "Qual a vigência do auto?"}
     assert sent[1]["role"] == "assistant" and len(sent[1]["content"]) == 600
     assert sent[2]["role"] == "user" and "E no residencial?" in sent[2]["content"]
+
+
+async def test_search_calls_are_capped_then_model_must_conclude(knowledge):
+    def router(req):
+        last = req.messages[-1]
+        if last["role"] == "tool" and "Limite de buscas" in last["content"]:
+            return refuse("NO_SOURCE", "Não há fonte sobre IOF nas fontes disponíveis.")
+        return tool_call("search_documents", {"query": "alíquota IOF prêmio"})
+
+    provider = FakeProvider(router=router)
+    events, r = await run(make_deps(knowledge, provider, max_search_calls=2, max_tool_iterations=6), "Qual é a alíquota de IOF sobre o prêmio?")
+    assert events[-1].status == "refused" and events[-1].refusal_code == "NO_SOURCE"
+    # two real searches, the third is answered with the limit note instead of more sources
+    assert len(provider.calls) == 4 and r.tool_calls == 4  # 2 searches + capped search + refuse
+    limit_msgs = [m for m in provider.calls[-1].messages if m["role"] == "tool" and "Limite de buscas" in m["content"]]
+    assert len(limit_msgs) == 1

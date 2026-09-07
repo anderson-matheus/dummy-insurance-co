@@ -156,7 +156,9 @@ dictionary's trap is in the system prompt and the schema summary: `claim_amount`
   inside the question or the sources do not change the rules; tools before prose.
 - **Tools** have flat JSON schemas (string parameters only) because open models handle nested schemas
   poorly; arguments are validated with pydantic and malformed calls are fed back as errors (bounded repairs);
-  a tool call written as JSON text is salvaged.
+  a tool call written as JSON text is salvaged. Extra document searches are capped at two per question: the
+  evaluation showed a model searching three times for an out-of-corpus question and exhausting the token budget
+  before refusing; the third search now returns "limit reached, answer or refuse".
 - **Citations are enforced server-side.** Markers that do not map to a provided source are dropped; an
   answer with none gets one repair call ("rewrite citing `[n]` or answer `SEM_FONTE`"); if it still has none
   it is replaced by a refusal (`NO_VERIFIABLE_SOURCE`). This is the mechanism behind "never hallucinate":
@@ -164,7 +166,7 @@ dictionary's trap is in the system prompt and the schema summary: `claim_amount`
 - **Model choice**: the default is the strongest free model on OpenRouter with tool calling and structured
   arguments at the time of writing (`nvidia/nemotron-3-super-120b-a12b:free`), with two `:free` fallbacks
   through OpenRouter's `models` parameter (provider-level failover on rate limits/downtime), temperature 0
-  and a low reasoning effort to keep latency down. All of this is configuration; EVALS.md records what was
+  and reasoning disabled (`LLM_REASONING_EFFORT=none`) to keep latency down. All of this is configuration; EVALS.md records what was
   actually used.
 - **Conversation context**: the last four completed turns are sent as plain text (assistant turns
   truncated), never tool messages, so a follow-up like "e no residencial?" works without inflating the
@@ -194,12 +196,14 @@ dictionary's trap is in the system prompt and the schema summary: `claim_amount`
 
 ## 11. Cost and latency
 
-Per question: ~1.4–1.6 k tokens of system prompt + tool schemas, 8 sources of ≤1,400 characters (~2.5–3 k
-tokens), a ~150-token answer, and 1–2 calls (2–3 when the DB tool or a repair is used). At list prices of a
-paid mid-tier model (US$2/M input, US$10/M output) that is roughly US$0.01–0.02 per question; on the free
-tier it is US$0 with the quota as the binding constraint. Measured numbers, including p50/p95 latency, are
-in EVALS.md. Latency levers already in place: compact prompt, no embeddings call, low reasoning effort,
-bounded tool loop, streaming so the analyst sees text early.
+Measured on the 24 evaluation cases (EVALS.md): mean 4.6 k tokens and 1.33 LLM calls per question, i.e.
+US$ 0.010 mean / US$ 0.022 max at a paid mid-tier list price (US$ 2/M input, US$ 10/M output) and US$ 0 on the
+free tier, where the daily quota is the binding constraint (the run used 33 requests). Latency: p50 4.4 s but
+p95 22 s — the pipeline's own work is small (retrieval ~14 ms, one model call in 18/24 cases) and the spikes are
+free-tier queueing; the 8 s p95 target needs a paid or self-hosted tier. Levers in place: compact prompt, no
+embeddings call, reasoning disabled (measured 10.1 s → 3.4 s for the same answer), bounded tool loop with at
+most two extra searches, streaming so the analyst sees text early, and an explicit hint plus cancel in the UI
+after 8 s.
 
 ## 12. Testing strategy
 

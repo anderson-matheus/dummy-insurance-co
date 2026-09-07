@@ -1,0 +1,97 @@
+{
+  "id": "au-04",
+  "set": "authorial",
+  "question": "Qual é a franquia da cobertura de vidros no Seguro Residencial?",
+  "expected": "R$ 100,00 (CG Residencial Tabela 1 / NI-022).",
+  "answer": "A franquia da cobertura de vidros no Seguro Residencial é de R$ 100,00, conforme consta na Tabela 1 das Condições Gerais do Seguro Residencial [2] e confirmada no Normativo de Franquias [3].",
+  "status": "complete",
+  "refusal_code": null,
+  "citations": [
+    {
+      "ordinal": 2,
+      "source_type": "document",
+      "doc_code": "CG-RES-2024",
+      "doc_title": "Condições Gerais do Seguro Residencial",
+      "doc_version": "2.1",
+      "doc_status": "vigente",
+      "section": "§3 Coberturas",
+      "page": 1,
+      "chunk_id": "CG-RES-2024:2.1:3",
+      "snippet": "As coberturas, limites e franquias constam da tabela a seguir. A cobertura básica (Incêndio, raio e explosão) é obrigatória; as demais são adicionais e facultativas.\nTabela 1 - Coberturas, limites e franquias do Seguro Residencial\nCobertura | Limite máximo de indenização | Franquia\nIncêndio, raio e explosão (cobertura básica) | R$ 300.000,00 | não há\nDanos Elétricos | R$ 10.000,00 | R$ 250,00\nRoub…",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    },
+    {
+      "ordinal": 3,
+      "source_type": "document",
+      "doc_code": "NI-022",
+      "doc_title": "Normativo de Franquias e Participação Obrigatória do Segurado",
+      "doc_version": "1.3",
+      "doc_status": "vigente",
+      "section": "§3 Tabela de Franquias",
+      "page": 1,
+      "chunk_id": "NI-022:1.3:3",
+      "snippet": "Tabela 1 - Franquias por produto e cobertura\nProduto | Cobertura | Franquia\nAuto | Casco (colisão) | R$ 3.500,00\nAuto | Cobertura de Vidros | R$ 150,00\nResidencial | Danos Elétricos (3) | R$ 250,00\nResidencial | Roubo e Furto Qualificado | R$ 400,00\nResidencial | Cobertura de Vidros | R$ 100,00\nResidencial | Vendaval, furacão e granizo | R$ 500,00\nEmpresarial | Incêndio e explosão | R$ 5.000,00\nEm…",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    }
+  ],
+  "tool_calls": [],
+  "error": null,
+  "provenance": {
+    "documents_cited": [
+      {
+        "doc_code": "CG-RES-2024",
+        "doc_title": "Condições Gerais do Seguro Residencial",
+        "version": "2.1",
+        "status": "vigente"
+      },
+      {
+        "doc_code": "NI-022",
+        "doc_title": "Normativo de Franquias e Participação Obrigatória do Segurado",
+        "version": "1.3",
+        "status": "vigente"
+      }
+    ],
+    "database_queried": false,
+    "database_snapshot": null,
+    "index_built_at": "2026-09-07T21:11:31Z",
+    "sources_checked": [
+      "CG-RES-2024 v2.1 · §3.5 Cobertura de Vidros · p. 1",
+      "CG-RES-2024 v2.1 · §3 Coberturas · p. 1",
+      "NI-022 v1.3 · §3 Tabela de Franquias · p. 1",
+      "CG-AUTO-2024 v3.2 · §3.5 Cobertura de Vidros · p. 5",
+      "CG-AUTO-2024 v3.2 · §4.2.1.3 Limites e reparos · p. 6",
+      "CG-AUTO-2024 v3.2 · §3 Coberturas · p. 3",
+      "MAN-SIN-2025 v2.0 · §31 Anexo A - Exemplos Resolvidos de Regulação · p. 11",
+      "NI-022 v1.3 · §4 Casos Práticos · p. 2"
+    ]
+  },
+  "latency_ms": 1488,
+  "metrics": {
+    "input_tokens": 3654,
+    "output_tokens": 59,
+    "cost_usd": 0.0,
+    "llm_calls": 1,
+    "retries": 0,
+    "tool_calls": 0,
+    "pii_hits": 0,
+    "served_model": "nvidia/nemotron-3-super-120b-a12b:free"
+  },
+  "checks": [
+    {
+      "name": "contains any of ['100,00']",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cites any of ['CG-RES-2024', 'NI-022']",
+      "passed": true,
+      "detail": "CG-RES-2024, NI-022"
+    }
+  ],
+  "passed": true,
+  "ran_at": "2026-09-07T22:16:21+00:00"
+}

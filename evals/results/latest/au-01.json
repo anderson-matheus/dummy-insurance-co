@@ -1,0 +1,116 @@
+{
+  "id": "au-01",
+  "set": "authorial",
+  "question": "Qual é o prazo para o segurado comunicar o sinistro?",
+  "expected": "3 dias úteis (NI-014 v2.0, vigente); a v1.0 (5 dias) está superada.",
+  "answer": "O segurado deve comunicar o sinistro à seguradora no prazo de 3 dias úteis, contados da data em que tomar conhecimento do evento, conforme o normativo vigente NI-014 v2.0 [4]. O prazo é contado em dias úteis, excluindo sábados, domingos e feriados nacionais [8]. A comunicação pode ser feita pelos canais oficiais de atendimento [3].",
+  "status": "complete",
+  "refusal_code": null,
+  "citations": [
+    {
+      "ordinal": 3,
+      "source_type": "document",
+      "doc_code": "NI-014",
+      "doc_title": "Normativo Interno de Prazos de Comunicação de Sinistro",
+      "doc_version": "2.0",
+      "doc_status": "vigente",
+      "section": "§4 Forma de Comunicação",
+      "page": 1,
+      "chunk_id": "NI-014:2.0:4",
+      "snippet": "O aviso pode ser feito pelos canais oficiais de atendimento. O protocolo gerado comprova a data do aviso para fins de contagem de prazo.",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    },
+    {
+      "ordinal": 4,
+      "source_type": "document",
+      "doc_code": "NI-014",
+      "doc_title": "Normativo Interno de Prazos de Comunicação de Sinistro",
+      "doc_version": "2.0",
+      "doc_status": "vigente",
+      "section": "§3 Prazo de Comunicação",
+      "page": 1,
+      "chunk_id": "NI-014:2.0:3",
+      "snippet": "O segurado deve comunicar a ocorrência do sinistro à Seguradora no prazo de 3 dias úteis, contados da data em que tomar conhecimento do evento.\nEste prazo prevalece sobre qualquer disposição anterior em contrário, inclusive sobre o prazo previsto na versão 1.0 deste normativo.",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    },
+    {
+      "ordinal": 8,
+      "source_type": "document",
+      "doc_code": "NI-014",
+      "doc_title": "Normativo Interno de Prazos de Comunicação de Sinistro",
+      "doc_version": "2.0",
+      "doc_status": "vigente",
+      "section": "§6 Contagem do Prazo",
+      "page": 1,
+      "chunk_id": "NI-014:2.0:6",
+      "snippet": "O prazo previsto nesta versão é contado em dias úteis, excluindo-se sábados, domingos e feriados nacionais. O termo inicial é a data em que o segurado toma conhecimento do evento; a data do protocolo do aviso comprova a observância do prazo.",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    }
+  ],
+  "tool_calls": [],
+  "error": null,
+  "provenance": {
+    "documents_cited": [
+      {
+        "doc_code": "NI-014",
+        "doc_title": "Normativo Interno de Prazos de Comunicação de Sinistro",
+        "version": "2.0",
+        "status": "vigente"
+      }
+    ],
+    "database_queried": false,
+    "database_snapshot": null,
+    "index_built_at": "2026-09-07T21:11:31Z",
+    "sources_checked": [
+      "MAN-SIN-2025 v2.0 · §3 Aviso de Sinistro · p. 2",
+      "NI-014 v1.0 · §3 Prazo de Comunicação · p. 1",
+      "NI-014 v2.0 · §4 Forma de Comunicação · p. 1",
+      "NI-014 v2.0 · §3 Prazo de Comunicação · p. 1",
+      "MAN-SIN-2025 v2.0 · §18 Canais de Aviso e Atendimento · p. 6",
+      "NI-014 v2.0 · §1 Objeto · p. 1",
+      "NI-014 v1.0 · §4 Forma de Comunicação · p. 1",
+      "NI-014 v2.0 · §6 Contagem do Prazo · p. 1"
+    ]
+  },
+  "latency_ms": 18092,
+  "metrics": {
+    "input_tokens": 2758,
+    "output_tokens": 96,
+    "cost_usd": 0.0,
+    "llm_calls": 1,
+    "retries": 1,
+    "tool_calls": 0,
+    "pii_hits": 0,
+    "served_model": "nvidia/nemotron-3-super-120b-a12b:free"
+  },
+  "checks": [
+    {
+      "name": "contains any of ['3 dias', 'três dias']",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cites NI-014",
+      "passed": true,
+      "detail": "NI-014"
+    },
+    {
+      "name": "cites NI-014 v2.0",
+      "passed": true,
+      "detail": "NI-014 v2.0, NI-014 v2.0, NI-014 v2.0"
+    },
+    {
+      "name": "no '5 dias' unless 'superad'",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "passed": true,
+  "ran_at": "2026-09-07T22:16:01+00:00"
+}

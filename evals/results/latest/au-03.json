@@ -1,0 +1,77 @@
+{
+  "id": "au-03",
+  "set": "authorial",
+  "question": "Qual o limite da cobertura de Danos Corporais a Terceiros (RCF-DC) no Seguro Auto?",
+  "expected": "R$ 150.000,00 (Tabela 1 das CG Auto); não confundir com RCF-DM.",
+  "answer": "O limite máximo de indenização para a cobertura de Danos Corporais a Terceiros (RCF-DC) no Seguro Auto é de R$ 150.000,00, conforme consta na Tabela 1 das Condições Gerais do Seguro Auto [2].",
+  "status": "complete",
+  "refusal_code": null,
+  "citations": [
+    {
+      "ordinal": 2,
+      "source_type": "document",
+      "doc_code": "CG-AUTO-2024",
+      "doc_title": "Condições Gerais do Seguro Auto",
+      "doc_version": "3.2",
+      "doc_status": "vigente",
+      "section": "§3 Coberturas",
+      "page": 3,
+      "chunk_id": "CG-AUTO-2024:3.2:9",
+      "snippet": "As coberturas contratadas, seus limites máximos de indenização e as respectivas franquias constam da tabela abaixo. Coberturas não listadas na apólice não são devidas. O limite máximo de indenização é o valor teto que a Seguradora pagará em cada cobertura, isoladamente, por evento coberto, ainda que o prejuízo apurado seja superior.\nTabela 1 - Coberturas, limites e franquias do Seguro Auto\nCobertu…",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    }
+  ],
+  "tool_calls": [],
+  "error": null,
+  "provenance": {
+    "documents_cited": [
+      {
+        "doc_code": "CG-AUTO-2024",
+        "doc_title": "Condições Gerais do Seguro Auto",
+        "version": "3.2",
+        "status": "vigente"
+      }
+    ],
+    "database_queried": false,
+    "database_snapshot": null,
+    "index_built_at": "2026-09-07T21:11:31Z",
+    "sources_checked": [
+      "CG-AUTO-2024 v3.2 · §3.3 Responsabilidade Civil Facultativa por Danos Corporais (RCF-DC) · p. 5",
+      "CG-AUTO-2024 v3.2 · §3 Coberturas · p. 3",
+      "CG-AUTO-2024 v3.2 · §3.2 Responsabilidade Civil Facultativa por Danos Materiais (RCF-DM) · p. 4",
+      "FAQ-SIN-2025 v5.0 · §3 Perguntas e Respostas · p. 1",
+      "MAN-SIN-2025 v2.0 · §19 Regulação de Sinistros de Automóvel · p. 6",
+      "MAN-SIN-2025 v2.0 · §4 Prazos de Regulação · p. 2",
+      "CG-AUTO-2024 v3.2 · §3.4 Danos Morais a Terceiros · p. 5",
+      "FAQ-SIN-2025 v5.0 · §3 Perguntas e Respostas · p. 1",
+      "GLOS-2024 v1.1 · §2 Termos · p. 1"
+    ]
+  },
+  "latency_ms": 3765,
+  "metrics": {
+    "input_tokens": 3978,
+    "output_tokens": 63,
+    "cost_usd": 0.0,
+    "llm_calls": 1,
+    "retries": 0,
+    "tool_calls": 0,
+    "pii_hits": 0,
+    "served_model": "nvidia/nemotron-3-super-120b-a12b:free"
+  },
+  "checks": [
+    {
+      "name": "contains any of ['150.000']",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cites CG-AUTO-2024",
+      "passed": true,
+      "detail": "CG-AUTO-2024"
+    }
+  ],
+  "passed": true,
+  "ran_at": "2026-09-07T22:16:16+00:00"
+}

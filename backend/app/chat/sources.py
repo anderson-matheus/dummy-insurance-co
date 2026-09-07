@@ -33,12 +33,12 @@ class Source:
         assert self.query is not None
         return f"Banco de sinistros · {self.query.row_count} linha(s)"
 
-    def render_for_model(self) -> str:
+    def render_for_model(self, max_chars: int = MAX_SOURCE_CHARS) -> str:
         if self.chunk is not None:
             c = self.chunk
             status = "VIGENTE" if c.status == "vigente" else "SUPERADA (existe versão mais recente)"
             pages = f"p. {c.page_start}" if c.page_start == c.page_end else f"p. {c.page_start}-{c.page_end}"
-            text = c.text if len(c.text) <= MAX_SOURCE_CHARS else c.text[:MAX_SOURCE_CHARS] + " (...)"
+            text = c.text if len(c.text) <= max_chars else c.text[:max_chars] + " (...)"
             return f"[{self.n}] {c.doc_code} v{c.version} — {c.doc_title} — {status}, vigência {c.effective_date} — {c.section_label} — {pages}\n{text}"
         assert self.query is not None
         q = self.query
@@ -106,8 +106,8 @@ class SourceRegistry:
     def add_query(self, result: QueryResult) -> tuple[Source, bool]:
         return self._add(Source(n=0, kind="database", query=result))
 
-    def render_for_model(self, sources: list[Source] | None = None) -> str:
-        return "\n\n".join(s.render_for_model() for s in (sources if sources is not None else self._sources))
+    def render_for_model(self, sources: list[Source] | None = None, max_chars: int = MAX_SOURCE_CHARS) -> str:
+        return "\n\n".join(s.render_for_model(max_chars) for s in (sources if sources is not None else self._sources))
 
     def summaries(self) -> list[dict]:
         return [s.summary() for s in self._sources]

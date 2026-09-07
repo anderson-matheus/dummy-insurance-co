@@ -46,13 +46,23 @@ def _error(msg: str, expected: str) -> ToolOutcome:
     return ToolOutcome(content=json.dumps({"error": msg, "expected": expected}, ensure_ascii=False), is_error=True)
 
 
+SEARCH_LIMIT_NOTE = (
+    "Limite de buscas adicionais atingido. Responda com as fontes já disponíveis, citando [n], "
+    "ou chame refuse se nenhuma fonte responde à pergunta."
+)
+TOOL_SOURCE_CHARS = 900
+
+
 async def execute_tool(
-    tool: ToolUse, registry: SourceRegistry, retriever: Retriever, claims_db: ClaimsDB, search_k: int = 5
+    tool: ToolUse, registry: SourceRegistry, retriever: Retriever, claims_db: ClaimsDB, search_k: int = 4,
+    searches_left: int | None = None,
 ) -> ToolOutcome:
     if tool.input is None:
         return _error(f"argumentos inválidos ({tool.parse_error})", "um objeto JSON válido com os parâmetros da ferramenta")
     try:
         if tool.name == "search_documents":
+            if searches_left is not None and searches_left <= 0:
+                return ToolOutcome(content=SEARCH_LIMIT_NOTE, is_error=True, stage="searching_documents")
             args = SearchArgs(**tool.input)
             product = args.product if args.product in {"Auto", "Residencial", "Empresarial"} else None
             hits = retriever.search(args.query, k=search_k, product=product)
@@ -64,7 +74,7 @@ async def execute_tool(
             if not hits:
                 return ToolOutcome(content="Nenhum trecho encontrado para esses termos. Tente outros termos ou chame refuse.", stage="searching_documents")
             already = [s.n for s in (registry.get(registry.add_chunk(c)[0].n) for c in hits) if s not in new]
-            text = registry.render_for_model(new) if new else ""
+            text = registry.render_for_model(new, max_chars=TOOL_SOURCE_CHARS) if new else ""
             note = f"(as fontes {', '.join(f'[{n}]' for n in already)} já estavam disponíveis)" if already else ""
             return ToolOutcome(content=f"NOVAS FONTES:\n{text}\n{note}".strip(), new_sources=new, stage="searching_documents")
         if tool.name == "query_claims_db":

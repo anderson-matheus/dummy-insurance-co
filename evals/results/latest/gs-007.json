@@ -1,0 +1,139 @@
+{
+  "id": "gs-007",
+  "set": "golden",
+  "question": "No sinistro SIN-2025-004512, o valor pago respeitou o limite da cobertura de Danos Materiais a Terceiros do Seguro Auto?",
+  "expected": "Sim. O valor pago foi R$ 100.000,00, exatamente o limite da cobertura de Danos Materiais a Terceiros (RCF-DM) do Seguro Auto (R$ 100.000,00). O valor reivindicado era R$ 120.000,00, acima do limite, por isso foi pago o teto da cobertura.",
+  "answer": "O sinistro SIN-2025-004512 é do produto Auto, com valor reivindicado de R$ 120.000,00 e valor pago de R$ 100.000,00 [10]. Conforme as Condições Gerais do Seguro Auto vigente, o limite máximo de indenização para a cobertura de Danos Materiais a Terceiros (RCF-DM) é de R$ 100.000,00 [2]. O valor pago de R$ 100.000,00 respeitou esse limite, não ultrapassando o teto da cobertura. Além disso, a Ata do Comitê de Sinistros Graves de abril de 2025 confirma que o pagamento foi aprovado no limite da cobertura de danos a terceiros, com valor reivindicado superior ao limite [4]. Portanto, o valor pago respeitou o limite da cobertura de Danos Materiais a Terceiros do Seguro Auto. [2][4][10]",
+  "status": "complete",
+  "refusal_code": null,
+  "citations": [
+    {
+      "ordinal": 2,
+      "source_type": "document",
+      "doc_code": "CG-AUTO-2024",
+      "doc_title": "Condições Gerais do Seguro Auto",
+      "doc_version": "3.2",
+      "doc_status": "vigente",
+      "section": "§3 Coberturas",
+      "page": 3,
+      "chunk_id": "CG-AUTO-2024:3.2:9",
+      "snippet": "As coberturas contratadas, seus limites máximos de indenização e as respectivas franquias constam da tabela abaixo. Coberturas não listadas na apólice não são devidas. O limite máximo de indenização é o valor teto que a Seguradora pagará em cada cobertura, isoladamente, por evento coberto, ainda que o prejuízo apurado seja superior.\nTabela 1 - Coberturas, limites e franquias do Seguro Auto\nCobertu…",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    },
+    {
+      "ordinal": 4,
+      "source_type": "document",
+      "doc_code": "ATA-COM-2025-04",
+      "doc_title": "Ata do Comitê de Sinistros Graves - Abril de 2025",
+      "doc_version": "final",
+      "doc_status": "vigente",
+      "section": "§5 Deliberações",
+      "page": 1,
+      "chunk_id": "ATA-COM-2025-04:final:5",
+      "snippet": "- Sinistro SIN-2025-004512: pagamento aprovado no limite da cobertura de danos a terceiros; valor reivindicado superior ao limite.\n- Sinistro SIN-2025-004701: mantida a negativa, aguardando conclusão da apuração de agravamento do risco pelo SIU.\n- Sinistro SIN-2025-004655: seguir regulação de roubo, observando o prazo próprio da tabela do Manual de Sinistros.\n- Sinistro SIN-2025-004610: em regulaç…",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    },
+    {
+      "ordinal": 10,
+      "source_type": "database",
+      "doc_code": null,
+      "doc_title": "Banco de sinistros",
+      "doc_version": null,
+      "doc_status": null,
+      "section": null,
+      "page": null,
+      "chunk_id": null,
+      "snippet": "SIN-2025-004512 | 120000.00 | 100000.00 | Auto",
+      "sql": "SELECT c.claim_number, c.claim_amount, p.paid_amount, po.product\nFROM claims c\nJOIN policies po ON c.policy_id = po.policy_id\nJOIN payments p ON c.claim_id = p.claim_id\nWHERE c.claim_number = 'SIN-2025-004512'",
+      "row_count": 1,
+      "data_snapshot": "dados até 2026-02-11 (arquivo de 2026-09-07)"
+    }
+  ],
+  "tool_calls": [
+    {
+      "name": "query_claims_db",
+      "sql": "SELECT c.claim_number, c.claim_amount, p.paid_amount, po.product\nFROM claims c\nJOIN policies po ON c.policy_id = po.policy_id\nJOIN payments p ON c.claim_id = p.claim_id\nWHERE c.claim_number = 'SIN-2025-004512'"
+    }
+  ],
+  "error": null,
+  "provenance": {
+    "documents_cited": [
+      {
+        "doc_code": "CG-AUTO-2024",
+        "doc_title": "Condições Gerais do Seguro Auto",
+        "version": "3.2",
+        "status": "vigente"
+      },
+      {
+        "doc_code": "ATA-COM-2025-04",
+        "doc_title": "Ata do Comitê de Sinistros Graves - Abril de 2025",
+        "version": "final",
+        "status": "vigente"
+      }
+    ],
+    "database_queried": true,
+    "database_snapshot": "dados até 2026-02-11 (arquivo de 2026-09-07)",
+    "index_built_at": "2026-09-07T21:11:31Z",
+    "sources_checked": [
+      "CG-AUTO-2024 v3.2 · §3.2 Responsabilidade Civil Facultativa por Danos Materiais (RCF-DM) · p. 4",
+      "CG-AUTO-2024 v3.2 · §3 Coberturas · p. 3",
+      "CG-AUTO-2024 v3.2 · §3.3 Responsabilidade Civil Facultativa por Danos Corporais (RCF-DC) · p. 5",
+      "ATA-COM-2025-04 vfinal · §5 Deliberações · p. 1",
+      "MAN-SIN-2025 v2.0 · §19 Regulação de Sinistros de Automóvel · p. 6",
+      "MAN-SIN-2025 v2.0 · §4 Prazos de Regulação · p. 2",
+      "MAN-SIN-2025 v2.0 · §31 Anexo A - Exemplos Resolvidos de Regulação · p. 11",
+      "CG-AUTO-2024 v3.2 · §3.4 Danos Morais a Terceiros · p. 5",
+      "GLOS-2024 v1.1 · §2 Termos · p. 1",
+      "Banco de sinistros · 1 linha(s)"
+    ]
+  },
+  "latency_ms": 7927,
+  "metrics": {
+    "input_tokens": 8854,
+    "output_tokens": 375,
+    "cost_usd": 0.0,
+    "llm_calls": 2,
+    "retries": 0,
+    "tool_calls": 1,
+    "pii_hits": 0,
+    "served_model": "nvidia/nemotron-3-super-120b-a12b:free"
+  },
+  "checks": [
+    {
+      "name": "contains any of ['100.000']",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "contains any of ['limite', 'teto']",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cites CG-AUTO-2024",
+      "passed": true,
+      "detail": "ATA-COM-2025-04, CG-AUTO-2024"
+    },
+    {
+      "name": "cites a database query",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "SQL uses paid_amount",
+      "passed": true,
+      "detail": "SELECT c.claim_number, c.claim_amount, p.paid_amount, po.product\nFROM claims c\nJOIN policies po ON c.policy_id = po.poli"
+    },
+    {
+      "name": "no '120\\.000' unless 'reivindic'",
+      "passed": true,
+      "detail": "found"
+    }
+  ],
+  "passed": true,
+  "ran_at": "2026-09-07T22:15:09+00:00"
+}

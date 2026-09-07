@@ -1,0 +1,49 @@
+{
+  "id": "au-13",
+  "set": "authorial",
+  "question": "Bom dia! Tudo bem?",
+  "expected": "Recusa educada por estar fora do escopo (sem fonte).",
+  "answer": "Não encontrei fonte verificável para responder a esta pergunta nos documentos e no banco de sinistros disponíveis. Reformule a pergunta ou especifique o produto e o documento.",
+  "status": "refused",
+  "refusal_code": "NO_VERIFIABLE_SOURCE",
+  "citations": [],
+  "tool_calls": [],
+  "error": null,
+  "provenance": {
+    "documents_cited": [],
+    "database_queried": false,
+    "database_snapshot": null,
+    "index_built_at": "2026-09-07T21:11:31Z",
+    "sources_checked": [
+      "FAQ-SIN-2025 v5.0 · §1 Orientações Gerais · p. 1",
+      "MAN-SIN-2025 v2.0 · §25 Boas Práticas e Erros Comuns · p. 9",
+      "MAN-SIN-2025 v2.0 · §4 Prazos de Regulação · p. 2",
+      "MAN-SUB-2024 v1.2 · §2.2.1 Critérios objetivos · p. 1",
+      "CG-RES-2024 v2.1 · §4 Exclusões · p. 1",
+      "CG-RES-2024 v2.1 · §5.1 Salvados · p. 1",
+      "MAN-SUB-2024 v1.2 · §6.1 Agravantes e Atenuantes · p. 1",
+      "MAN-SUB-2024 v1.2 · §6 Precificação e Fatores de Risco · p. 1",
+      "GLOS-2024 v1.1 · §2 Termos · p. 2"
+    ]
+  },
+  "latency_ms": 22002,
+  "metrics": {
+    "input_tokens": 5437,
+    "output_tokens": 21,
+    "cost_usd": 0.0,
+    "llm_calls": 2,
+    "retries": 0,
+    "tool_calls": 0,
+    "pii_hits": 0,
+    "served_model": "nvidia/nemotron-3-super-120b-a12b:free, nvidia/nemotron-3-ultra-550b-a55b:free"
+  },
+  "checks": [
+    {
+      "name": "refusal",
+      "passed": true,
+      "detail": "status=refused"
+    }
+  ],
+  "passed": true,
+  "ran_at": "2026-09-07T22:18:33+00:00"
+}

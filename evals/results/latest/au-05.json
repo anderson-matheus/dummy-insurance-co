@@ -1,0 +1,91 @@
+{
+  "id": "au-05",
+  "set": "authorial",
+  "question": "Uma apólice com sinistralidade apurada de 45% recebe qual percentual de reajuste?",
+  "expected": "9,5% (faixa 31% a 60%, COM-REAJ-2025).",
+  "answer": "Uma apólice com sinistralidade apurada de 45% enquadra-se na faixa de 31% a 60% e recebe reajuste de **9,5%** [1][2].",
+  "status": "complete",
+  "refusal_code": null,
+  "citations": [
+    {
+      "ordinal": 1,
+      "source_type": "document",
+      "doc_code": "COM-REAJ-2025",
+      "doc_title": "Comunicado de Reajuste Anual de Prêmios",
+      "doc_version": "1.0",
+      "doc_status": "vigente",
+      "section": "§4 Exemplos de Aplicação",
+      "page": 1,
+      "chunk_id": "COM-REAJ-2025:1.0:4",
+      "snippet": "Exemplo 1: uma apólice com sinistralidade apurada de 45% enquadra-se na faixa de 31% a 60% e recebe o reajuste correspondente a essa faixa.\nExemplo 2: uma apólice com sinistralidade de 80% enquadra-se na faixa de 61% a 100%. Exemplo 3: sinistralidade de 120% enquadra-se na faixa acima de 100%.",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    },
+    {
+      "ordinal": 2,
+      "source_type": "document",
+      "doc_code": "COM-REAJ-2025",
+      "doc_title": "Comunicado de Reajuste Anual de Prêmios",
+      "doc_version": "1.0",
+      "doc_status": "vigente",
+      "section": "§2 Critério de Reajuste",
+      "page": 1,
+      "chunk_id": "COM-REAJ-2025:1.0:2",
+      "snippet": "A sinistralidade é a razão entre o valor pago em sinistros e o prêmio ganho no período. O percentual de reajuste aplicável por faixa de sinistralidade consta da tabela a seguir.\nTabela 1 - Reajuste por faixa de sinistralidade\nFaixa de sinistralidade | Percentual de reajuste\n0% a 30% | 5,0%\n31% a 60% | 9,5%\n61% a 100% | 18,0%\nacima de 100% | 27,0%",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    }
+  ],
+  "tool_calls": [],
+  "error": null,
+  "provenance": {
+    "documents_cited": [
+      {
+        "doc_code": "COM-REAJ-2025",
+        "doc_title": "Comunicado de Reajuste Anual de Prêmios",
+        "version": "1.0",
+        "status": "vigente"
+      }
+    ],
+    "database_queried": false,
+    "database_snapshot": null,
+    "index_built_at": "2026-09-07T21:11:31Z",
+    "sources_checked": [
+      "COM-REAJ-2025 v1.0 · §4 Exemplos de Aplicação · p. 1",
+      "COM-REAJ-2025 v1.0 · §2 Critério de Reajuste · p. 1",
+      "COM-REAJ-2025 v1.0 · §6 Metodologia de Cálculo · p. 1",
+      "CG-AUTO-2024 v3.2 · §7.3 Reajuste e Atualização de Valores · p. 9",
+      "COM-REAJ-2025 v1.0 · §3 Período de Referência · p. 1",
+      "COM-REAJ-2025 v1.0 · §1 Comunicado · p. 1",
+      "CG-AUTO-2024 v3.2 · §18 Atualização de Valores · p. 13",
+      "CG-RES-2024 v2.1 · §9 Atualização de Valores · p. 2"
+    ]
+  },
+  "latency_ms": 24715,
+  "metrics": {
+    "input_tokens": 2851,
+    "output_tokens": 49,
+    "cost_usd": 0.0,
+    "llm_calls": 1,
+    "retries": 0,
+    "tool_calls": 0,
+    "pii_hits": 0,
+    "served_model": "nvidia/nemotron-3-ultra-550b-a55b:free"
+  },
+  "checks": [
+    {
+      "name": "contains any of ['9,5']",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cites COM-REAJ-2025",
+      "passed": true,
+      "detail": "COM-REAJ-2025"
+    }
+  ],
+  "passed": true,
+  "ran_at": "2026-09-07T22:16:49+00:00"
+}

@@ -1,0 +1,102 @@
+{
+  "id": "au-02",
+  "set": "authorial",
+  "question": "Qual era o prazo de aviso de sinistro na versão 1.0 do NI-014?",
+  "expected": "5 dias úteis, deixando claro que a versão 1.0 está superada pela 2.0 (3 dias úteis).",
+  "answer": "O prazo de aviso de sinistro na versão 1.0 do NI-014 era de 5 dias úteis, contados da data em que o segurado tomou conhecimento do evento [1]. Essa versão está superada pela v2.0, vigente desde 2025-06-01, que estabelece prazo de 3 dias úteis [3].",
+  "status": "complete",
+  "refusal_code": null,
+  "citations": [
+    {
+      "ordinal": 1,
+      "source_type": "document",
+      "doc_code": "NI-014",
+      "doc_title": "Normativo Interno de Prazos de Comunicação de Sinistro",
+      "doc_version": "1.0",
+      "doc_status": "superada",
+      "section": "§3 Prazo de Comunicação",
+      "page": 1,
+      "chunk_id": "NI-014:1.0:3",
+      "snippet": "O segurado deve comunicar a ocorrência do sinistro à Seguradora no prazo de 5 dias úteis, contados da data em que tomar conhecimento do evento.\nO prazo aqui fixado aplica-se de forma uniforme a todos os produtos, independentemente do canal utilizado para o aviso.",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    },
+    {
+      "ordinal": 3,
+      "source_type": "document",
+      "doc_code": "NI-014",
+      "doc_title": "Normativo Interno de Prazos de Comunicação de Sinistro",
+      "doc_version": "2.0",
+      "doc_status": "vigente",
+      "section": "§3 Prazo de Comunicação",
+      "page": 1,
+      "chunk_id": "NI-014:2.0:3",
+      "snippet": "O segurado deve comunicar a ocorrência do sinistro à Seguradora no prazo de 3 dias úteis, contados da data em que tomar conhecimento do evento.\nEste prazo prevalece sobre qualquer disposição anterior em contrário, inclusive sobre o prazo previsto na versão 1.0 deste normativo.",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    }
+  ],
+  "tool_calls": [],
+  "error": null,
+  "provenance": {
+    "documents_cited": [
+      {
+        "doc_code": "NI-014",
+        "doc_title": "Normativo Interno de Prazos de Comunicação de Sinistro",
+        "version": "1.0",
+        "status": "superada"
+      },
+      {
+        "doc_code": "NI-014",
+        "doc_title": "Normativo Interno de Prazos de Comunicação de Sinistro",
+        "version": "2.0",
+        "status": "vigente"
+      }
+    ],
+    "database_queried": false,
+    "database_snapshot": null,
+    "index_built_at": "2026-09-07T21:11:31Z",
+    "sources_checked": [
+      "NI-014 v1.0 · §3 Prazo de Comunicação · p. 1",
+      "NI-014 v1.0 · §4 Forma de Comunicação · p. 1",
+      "NI-014 v2.0 · §3 Prazo de Comunicação · p. 1",
+      "MAN-SIN-2025 v2.0 · §3 Aviso de Sinistro · p. 2",
+      "NI-014 v1.0 · §2 Definições · p. 1",
+      "NI-014 v1.0 · §1 Objeto · p. 1",
+      "NI-014 v1.0 · §7 Contagem do Prazo · p. 1",
+      "NI-014 v2.0 · §4 Forma de Comunicação · p. 1"
+    ]
+  },
+  "latency_ms": 4204,
+  "metrics": {
+    "input_tokens": 2663,
+    "output_tokens": 89,
+    "cost_usd": 0.0,
+    "llm_calls": 1,
+    "retries": 0,
+    "tool_calls": 0,
+    "pii_hits": 0,
+    "served_model": "nvidia/nemotron-3-super-120b-a12b:free"
+  },
+  "checks": [
+    {
+      "name": "contains any of ['5 dias', 'cinco dias']",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "contains any of ['superad', 'substitu', '2.0', 'não está mais', 'deixou de']",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cites NI-014",
+      "passed": true,
+      "detail": "NI-014"
+    }
+  ],
+  "passed": true,
+  "ran_at": "2026-09-07T22:16:08+00:00"
+}

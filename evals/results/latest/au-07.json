@@ -1,0 +1,112 @@
+{
+  "id": "au-07",
+  "set": "authorial",
+  "question": "Quantas diárias de carro reserva o Seguro Auto oferece?",
+  "expected": "15 diárias, quando contratada (CG Auto Tabela 1).",
+  "answer": "A cobertura de Carro Reserva do Seguro Auto oferece 15 diárias, conforme consta na Tabela 1 das Condições Gerais do Seguro Auto [3]. Essa informação também é confirmada no §3.6, que menciona que o número de diárias está indicado na Tabela 1 e nas condições particulares [1]. A FAQ dos analistas também afirma que o número de diárias deve ser consultado na tabela de coberturas [2]. Todas as fontes citadas são vigentes.",
+  "status": "complete",
+  "refusal_code": null,
+  "citations": [
+    {
+      "ordinal": 1,
+      "source_type": "document",
+      "doc_code": "CG-AUTO-2024",
+      "doc_title": "Condições Gerais do Seguro Auto",
+      "doc_version": "3.2",
+      "doc_status": "vigente",
+      "section": "§3.6 Carro Reserva e Assistência 24 Horas",
+      "page": 5,
+      "chunk_id": "CG-AUTO-2024:3.2:15",
+      "snippet": "As coberturas de Carro Reserva e de Assistência 24 Horas, quando contratadas, disponibilizam serviços de mobilidade e socorro ao Segurado, conforme o número de diárias e o plano indicados na Tabela 1 e nas condições particulares. Tais serviços observam disponibilidade regional dos prestadores e não substituem as coberturas patrimoniais de Casco e de responsabilidade civil.",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    },
+    {
+      "ordinal": 2,
+      "source_type": "document",
+      "doc_code": "FAQ-SIN-2025",
+      "doc_title": "FAQ dos Analistas de Sinistros",
+      "doc_version": "5.0",
+      "doc_status": "vigente",
+      "section": "§3 Perguntas e Respostas",
+      "page": 1,
+      "chunk_id": "FAQ-SIN-2025:5.0:19",
+      "snippet": "Pergunta: existe carro reserva no auto? Resposta: sim, quando contratado; consulte a tabela de coberturas do Seguro Auto para o número de diárias.",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    },
+    {
+      "ordinal": 3,
+      "source_type": "document",
+      "doc_code": "CG-AUTO-2024",
+      "doc_title": "Condições Gerais do Seguro Auto",
+      "doc_version": "3.2",
+      "doc_status": "vigente",
+      "section": "§3 Coberturas",
+      "page": 3,
+      "chunk_id": "CG-AUTO-2024:3.2:9",
+      "snippet": "As coberturas contratadas, seus limites máximos de indenização e as respectivas franquias constam da tabela abaixo. Coberturas não listadas na apólice não são devidas. O limite máximo de indenização é o valor teto que a Seguradora pagará em cada cobertura, isoladamente, por evento coberto, ainda que o prejuízo apurado seja superior.\nTabela 1 - Coberturas, limites e franquias do Seguro Auto\nCobertu…",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    }
+  ],
+  "tool_calls": [],
+  "error": null,
+  "provenance": {
+    "documents_cited": [
+      {
+        "doc_code": "CG-AUTO-2024",
+        "doc_title": "Condições Gerais do Seguro Auto",
+        "version": "3.2",
+        "status": "vigente"
+      },
+      {
+        "doc_code": "FAQ-SIN-2025",
+        "doc_title": "FAQ dos Analistas de Sinistros",
+        "version": "5.0",
+        "status": "vigente"
+      }
+    ],
+    "database_queried": false,
+    "database_snapshot": null,
+    "index_built_at": "2026-09-07T21:11:31Z",
+    "sources_checked": [
+      "CG-AUTO-2024 v3.2 · §3.6 Carro Reserva e Assistência 24 Horas · p. 5",
+      "FAQ-SIN-2025 v5.0 · §3 Perguntas e Respostas · p. 1",
+      "CG-AUTO-2024 v3.2 · §3 Coberturas · p. 3",
+      "CG-AUTO-2024 v3.2 · §10 Coberturas Adicionais · p. 10",
+      "POL-LGPD-2024 v2.0 · §4 Assistentes e Sistemas Automatizados · p. 1",
+      "CG-AUTO-2024 v3.2 · §3.2 Responsabilidade Civil Facultativa por Danos Materiais (RCF-DM) · p. 4",
+      "CG-AUTO-2024 v3.2 · §11 Inspeção e Vistoria Prévia · p. 11",
+      "CG-AUTO-2024 v3.2 · §3.5 Cobertura de Vidros · p. 5"
+    ]
+  },
+  "latency_ms": 2666,
+  "metrics": {
+    "input_tokens": 3406,
+    "output_tokens": 108,
+    "cost_usd": 0.0,
+    "llm_calls": 1,
+    "retries": 0,
+    "tool_calls": 0,
+    "pii_hits": 0,
+    "served_model": "nvidia/nemotron-3-super-120b-a12b:free"
+  },
+  "checks": [
+    {
+      "name": "contains any of ['15']",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cites CG-AUTO-2024",
+      "passed": true,
+      "detail": "CG-AUTO-2024, FAQ-SIN-2025"
+    }
+  ],
+  "passed": true,
+  "ran_at": "2026-09-07T22:17:03+00:00"
+}

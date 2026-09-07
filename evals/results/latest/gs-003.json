@@ -1,0 +1,102 @@
+{
+  "id": "gs-003",
+  "set": "golden",
+  "question": "Segundo as Condições Gerais do Seguro Residencial, o que caracteriza furto qualificado?",
+  "expected": "Furto qualificado é o furto praticado mediante destruição ou rompimento de obstáculo, escalada, ou uso de chave falsa, deixando vestígios materiais.",
+  "answer": "Furto qualificado é aquele praticado mediante destruição ou rompimento de obstáculo, escalada, ou uso de chave falsa, deixando vestígios materiais no local. O furto simples, sem vestígios, não está coberto. [1] [7]",
+  "status": "complete",
+  "refusal_code": null,
+  "citations": [
+    {
+      "ordinal": 1,
+      "source_type": "document",
+      "doc_code": "CG-RES-2024",
+      "doc_title": "Condições Gerais do Seguro Residencial",
+      "doc_version": "2.1",
+      "doc_status": "vigente",
+      "section": "§3.3 Roubo e Furto Qualificado de Bens",
+      "page": 1,
+      "chunk_id": "CG-RES-2024:2.1:5",
+      "snippet": "Esta cobertura garante a indenização por roubo ou furto qualificado de bens localizados no interior do imóvel segurado. Considera-se furto qualificado aquele praticado mediante destruição ou rompimento de obstáculo, escalada, ou uso de chave falsa, deixando vestígios materiais no local. O furto simples, sem vestígios, não está coberto.",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    },
+    {
+      "ordinal": 7,
+      "source_type": "document",
+      "doc_code": "GLOS-2024",
+      "doc_title": "Glossário de Termos de Seguro",
+      "doc_version": "1.1",
+      "doc_status": "vigente",
+      "section": "§2 Termos",
+      "page": 1,
+      "chunk_id": "GLOS-2024:1.1:2",
+      "snippet": "Apólice: Documento que formaliza o contrato de seguro, com as condições particulares do risco.\nFranquia: Valor de participação obrigatória do segurado em cada sinistro indenizável, deduzido da indenização.\nSinistralidade: Razão entre o valor pago em sinistros e o prêmio ganho no período de referência.\nRegulação de sinistro: Processo de análise que determina a procedência e o valor da indenização.…",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    }
+  ],
+  "tool_calls": [],
+  "error": null,
+  "provenance": {
+    "documents_cited": [
+      {
+        "doc_code": "CG-RES-2024",
+        "doc_title": "Condições Gerais do Seguro Residencial",
+        "version": "2.1",
+        "status": "vigente"
+      },
+      {
+        "doc_code": "GLOS-2024",
+        "doc_title": "Glossário de Termos de Seguro",
+        "version": "1.1",
+        "status": "vigente"
+      }
+    ],
+    "database_queried": false,
+    "database_snapshot": null,
+    "index_built_at": "2026-09-07T21:11:31Z",
+    "sources_checked": [
+      "CG-RES-2024 v2.1 · §3.3 Roubo e Furto Qualificado de Bens · p. 1",
+      "FAQ-SIN-2025 v5.0 · §3 Perguntas e Respostas · p. 1",
+      "CG-RES-2024 v2.1 · §3 Coberturas · p. 1",
+      "MAN-SIN-2025 v2.0 · §13 Recursos e Segunda Análise · p. 5",
+      "NI-022 v1.3 · §3 Tabela de Franquias · p. 1",
+      "CG-RES-2024 v2.1 · §1 Objeto do Seguro · p. 1",
+      "GLOS-2024 v1.1 · §2 Termos · p. 1",
+      "CG-RES-2024 v2.1 · §5 Obrigações do Segurado · p. 1"
+    ]
+  },
+  "latency_ms": 7311,
+  "metrics": {
+    "input_tokens": 3235,
+    "output_tokens": 58,
+    "cost_usd": 0.0,
+    "llm_calls": 1,
+    "retries": 0,
+    "tool_calls": 0,
+    "pii_hits": 0,
+    "served_model": "nvidia/nemotron-3-super-120b-a12b:free"
+  },
+  "checks": [
+    {
+      "name": "contains any of ['rompimento', 'destruição', 'arrombamento', 'obstáculo']",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "contains any of ['vestígio']",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cites CG-RES-2024",
+      "passed": true,
+      "detail": "CG-RES-2024, GLOS-2024"
+    }
+  ],
+  "passed": true,
+  "ran_at": "2026-09-07T22:14:31+00:00"
+}

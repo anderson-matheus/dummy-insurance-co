@@ -1,0 +1,102 @@
+{
+  "id": "au-09",
+  "set": "authorial",
+  "question": "Qual foi o valor reivindicado e o valor efetivamente pago no sinistro SIN-2025-004733?",
+  "expected": "Reivindicado R$ 4.300,00 e pago R$ 4.300,00 (payments.paid_amount).",
+  "answer": "O sinistro SIN-2025-004733 teve valor reivindicado de R$ 4.300,00 e valor efetivamente pago de R$ 4.300,00 [9]. Conforme a Ata do Comitê de Sinistros Graves de abril/2025, o dano elétrico por raio foi comprovado por laudo, a franquia foi dispensada e o pagamento integral foi realizado [1]. O valor pago corresponde ao valor reivindicado, indicando indenização integral sem deduções.",
+  "status": "complete",
+  "refusal_code": null,
+  "citations": [
+    {
+      "ordinal": 1,
+      "source_type": "document",
+      "doc_code": "ATA-COM-2025-04",
+      "doc_title": "Ata do Comitê de Sinistros Graves - Abril de 2025",
+      "doc_version": "final",
+      "doc_status": "vigente",
+      "section": "§5 Deliberações",
+      "page": 1,
+      "chunk_id": "ATA-COM-2025-04:final:5",
+      "snippet": "- Sinistro SIN-2025-004512: pagamento aprovado no limite da cobertura de danos a terceiros; valor reivindicado superior ao limite.\n- Sinistro SIN-2025-004701: mantida a negativa, aguardando conclusão da apuração de agravamento do risco pelo SIU.\n- Sinistro SIN-2025-004655: seguir regulação de roubo, observando o prazo próprio da tabela do Manual de Sinistros.\n- Sinistro SIN-2025-004610: em regulaç…",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    },
+    {
+      "ordinal": 9,
+      "source_type": "database",
+      "doc_code": null,
+      "doc_title": "Banco de sinistros",
+      "doc_version": null,
+      "doc_status": null,
+      "section": null,
+      "page": null,
+      "chunk_id": null,
+      "snippet": "4300.00 | 4300.00",
+      "sql": "SELECT c.claim_amount AS valor_reivindicado, p.paid_amount AS valor_pago\nFROM claims c\nJOIN payments p ON p.claim_id = c.claim_id\nWHERE c.claim_number = 'SIN-2025-004733'",
+      "row_count": 1,
+      "data_snapshot": "dados até 2026-02-11 (arquivo de 2026-09-07)"
+    }
+  ],
+  "tool_calls": [
+    {
+      "name": "query_claims_db",
+      "sql": "SELECT c.claim_amount AS valor_reivindicado, p.paid_amount AS valor_pago\nFROM claims c\nJOIN payments p ON p.claim_id = c.claim_id\nWHERE c.claim_number = 'SIN-2025-004733'"
+    }
+  ],
+  "error": null,
+  "provenance": {
+    "documents_cited": [
+      {
+        "doc_code": "ATA-COM-2025-04",
+        "doc_title": "Ata do Comitê de Sinistros Graves - Abril de 2025",
+        "version": "final",
+        "status": "vigente"
+      }
+    ],
+    "database_queried": true,
+    "database_snapshot": "dados até 2026-02-11 (arquivo de 2026-09-07)",
+    "index_built_at": "2026-09-07T21:11:31Z",
+    "sources_checked": [
+      "ATA-COM-2025-04 vfinal · §5 Deliberações · p. 1",
+      "ATA-COM-2025-04 vfinal · §4 Casos em Análise · p. 1",
+      "MAN-SIN-2025 v2.0 · §7 Pagamento · p. 4",
+      "MAN-SIN-2025 v2.0 · §22 Cálculo da Indenização e Deduções · p. 8",
+      "MAN-SIN-2025 v2.0 · §30 Glossário Operacional · p. 10",
+      "GLOS-2024 v1.1 · §2 Termos · p. 1",
+      "FAQ-SIN-2025 v5.0 · §3 Perguntas e Respostas · p. 1",
+      "MAN-SIN-2025 v2.0 · §31 Anexo A - Exemplos Resolvidos de Regulação · p. 11",
+      "Banco de sinistros · 1 linha(s)"
+    ]
+  },
+  "latency_ms": 16813,
+  "metrics": {
+    "input_tokens": 7269,
+    "output_tokens": 250,
+    "cost_usd": 0.0,
+    "llm_calls": 2,
+    "retries": 0,
+    "tool_calls": 1,
+    "pii_hits": 0,
+    "served_model": "nvidia/nemotron-3-ultra-550b-a55b:free, nvidia/nemotron-3-super-120b-a12b:free"
+  },
+  "checks": [
+    {
+      "name": "contains any of ['4.300']",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cites a database query",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "SQL uses paid_amount",
+      "passed": true,
+      "detail": "SELECT c.claim_amount AS valor_reivindicado, p.paid_amount AS valor_pago\nFROM claims c\nJOIN payments p ON p.claim_id = c"
+    }
+  ],
+  "passed": true,
+  "ran_at": "2026-09-07T22:17:29+00:00"
+}

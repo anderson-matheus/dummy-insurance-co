@@ -1,0 +1,168 @@
+{
+  "id": "gs-002",
+  "set": "golden",
+  "question": "O que o analista deve fazer ao identificar indícios de fraude em um sinistro?",
+  "expected": "Deve suspender o prazo de regulação, registrar os indícios e encaminhar o caso ao setor de investigação (SIU) para apuração, sem negar o sinistro por conta própria.",
+  "answer": "Ao identificar indícios de fraude, o analista deve suspender o prazo de regulação, registrar os indícios no sistema e encaminhar o caso ao setor de investigação (SIU) para apuração. O analista não deve negar o sinistro por conta própria; a negativa depende da conclusão da apuração pelo SIU. Toda a tramitação deve ser documentada, preservando-se a confidencialidade e a imparcialidade da apuração. [1] [2] [3] [5] [6] [7]",
+  "status": "complete",
+  "refusal_code": null,
+  "citations": [
+    {
+      "ordinal": 1,
+      "source_type": "document",
+      "doc_code": "MAN-SIN-2025",
+      "doc_title": "Manual de Regulação de Sinistros",
+      "doc_version": "2.0",
+      "doc_status": "vigente",
+      "section": "§6.2 Procedimento do analista",
+      "page": 3,
+      "chunk_id": "MAN-SIN-2025:2.0:11",
+      "snippet": "Ao identificar indícios de fraude, o analista deve suspender o prazo de regulação, registrar os indícios no sistema e encaminhar o caso ao setor de investigação (SIU) para apuração. O analista não deve negar o sinistro por conta própria; a negativa depende da conclusão da apuração pelo SIU. Toda a tramitação deve ser documentada, preservando-se a confidencialidade e a imparcialidade da apuração.",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    },
+    {
+      "ordinal": 2,
+      "source_type": "document",
+      "doc_code": "MAN-SIN-2025",
+      "doc_title": "Manual de Regulação de Sinistros",
+      "doc_version": "2.0",
+      "doc_status": "vigente",
+      "section": "§26 Checklist do Analista",
+      "page": 9,
+      "chunk_id": "MAN-SIN-2025:2.0:32",
+      "snippet": "- Confirmar vigência da apólice na data do evento;\n- Confirmar a existência da cobertura acionada;\n- Conferir a versão vigente do NI-014 antes de avaliar tempestividade do aviso;\n- Solicitar somente a documentação mínima aplicável ao tipo de sinistro;\n- Registrar suspensões de prazo com o documento pendente identificado;\n- Distinguir valor reivindicado (cadastro do sinistro) de valor pago (pagamen…",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    },
+    {
+      "ordinal": 3,
+      "source_type": "document",
+      "doc_code": "MAN-SIN-2025",
+      "doc_title": "Manual de Regulação de Sinistros",
+      "doc_version": "2.0",
+      "doc_status": "vigente",
+      "section": "§31 Anexo A - Exemplos Resolvidos de Regulação",
+      "page": 11,
+      "chunk_id": "MAN-SIN-2025:2.0:40",
+      "snippet": "Exemplo 7 (indícios de fraude). Durante a regulação, o analista identifica divergências entre o relato e os vestígios. Em vez de negar por conta própria, suspende o prazo, registra os indícios e encaminha ao SIU. Concluída a apuração sem confirmação de fraude, a regulação prossegue; confirmada a fraude, aplica-se a perda de direitos, com negativa fundamentada.\nExemplo 8 (documentação incompleta).…",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    },
+    {
+      "ordinal": 5,
+      "source_type": "document",
+      "doc_code": "MAN-SIN-2025",
+      "doc_title": "Manual de Regulação de Sinistros",
+      "doc_version": "2.0",
+      "doc_status": "vigente",
+      "section": "§24 Comunicação de Negativa",
+      "page": 8,
+      "chunk_id": "MAN-SIN-2025:2.0:30",
+      "snippet": "A negativa de cobertura deve ser sempre fundamentada, com indicação da cláusula ou do fato que a motiva, em linguagem clara e respeitosa. A comunicação informa ao segurado os canais de reanálise e recurso. Negativas genéricas, sem fundamento específico, são vedadas e comprometem a qualidade e a imagem da Seguradora.\nAntes de comunicar a negativa, o analista deve revisar a completude da apuração e,…",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    },
+    {
+      "ordinal": 6,
+      "source_type": "document",
+      "doc_code": "FAQ-SIN-2025",
+      "doc_title": "FAQ dos Analistas de Sinistros",
+      "doc_version": "5.0",
+      "doc_status": "vigente",
+      "section": "§3 Perguntas e Respostas",
+      "page": 1,
+      "chunk_id": "FAQ-SIN-2025:5.0:6",
+      "snippet": "Pergunta: como trato indícios de fraude? Resposta: suspenda a regulação, registre e encaminhe ao SIU. Não negue por conta própria.",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    },
+    {
+      "ordinal": 7,
+      "source_type": "document",
+      "doc_code": "ATA-COM-2025-04",
+      "doc_title": "Ata do Comitê de Sinistros Graves - Abril de 2025",
+      "doc_version": "final",
+      "doc_status": "vigente",
+      "section": "§6 Encaminhamentos",
+      "page": 1,
+      "chunk_id": "ATA-COM-2025-04:final:6",
+      "snippet": "Ficou definido que as negativas serão comunicadas de forma fundamentada, com indicação do critério aplicado. Casos com indício de fraude seguem para apuração do SIU antes de qualquer decisão definitiva.",
+      "sql": null,
+      "row_count": null,
+      "data_snapshot": null
+    }
+  ],
+  "tool_calls": [],
+  "error": null,
+  "provenance": {
+    "documents_cited": [
+      {
+        "doc_code": "MAN-SIN-2025",
+        "doc_title": "Manual de Regulação de Sinistros",
+        "version": "2.0",
+        "status": "vigente"
+      },
+      {
+        "doc_code": "FAQ-SIN-2025",
+        "doc_title": "FAQ dos Analistas de Sinistros",
+        "version": "5.0",
+        "status": "vigente"
+      },
+      {
+        "doc_code": "ATA-COM-2025-04",
+        "doc_title": "Ata do Comitê de Sinistros Graves - Abril de 2025",
+        "version": "final",
+        "status": "vigente"
+      }
+    ],
+    "database_queried": false,
+    "database_snapshot": null,
+    "index_built_at": "2026-09-07T21:11:31Z",
+    "sources_checked": [
+      "MAN-SIN-2025 v2.0 · §6.2 Procedimento do analista · p. 3",
+      "MAN-SIN-2025 v2.0 · §26 Checklist do Analista · p. 9",
+      "MAN-SIN-2025 v2.0 · §31 Anexo A - Exemplos Resolvidos de Regulação · p. 11",
+      "CG-AUTO-2024 v3.2 · §5.2 Regulação do Sinistro · p. 8",
+      "MAN-SIN-2025 v2.0 · §24 Comunicação de Negativa · p. 8",
+      "FAQ-SIN-2025 v5.0 · §3 Perguntas e Respostas · p. 1",
+      "ATA-COM-2025-04 vfinal · §6 Encaminhamentos · p. 1",
+      "GLOS-2024 v1.1 · §2 Termos · p. 1"
+    ]
+  },
+  "latency_ms": 2265,
+  "metrics": {
+    "input_tokens": 3162,
+    "output_tokens": 119,
+    "cost_usd": 0.0,
+    "llm_calls": 1,
+    "retries": 0,
+    "tool_calls": 0,
+    "pii_hits": 0,
+    "served_model": "nvidia/nemotron-3-super-120b-a12b:free"
+  },
+  "checks": [
+    {
+      "name": "contains any of ['SIU', 'investigação']",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "contains any of ['suspend', 'registr']",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cites MAN-SIN-2025",
+      "passed": true,
+      "detail": "ATA-COM-2025-04, FAQ-SIN-2025, MAN-SIN-2025"
+    }
+  ],
+  "passed": true,
+  "ran_at": "2026-09-07T22:14:20+00:00"
+}

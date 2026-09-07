@@ -56,6 +56,14 @@ loop, and this document is intentionally explicit about it.
     running on the server (another tab); the UI now shows "em andamento" and polls until it settles, and only
     rows swept at restart are marked interrupted.
 
+11. **"Low" reasoning effort as the latency default (corrected by measurement).** The first provider run took
+    10.1 s for a one-call answer; a second smoke call with reasoning disabled took 3.4 s with the same answer and
+    citations, so `none` became the default and the change is recorded in EVALS.md.
+12. **Unbounded document searches (found by the evaluation).** The out-of-corpus case ended as a budget error
+    because the model searched three times before refusing. The assistant proposed raising the token cap; the
+    accepted fix caps searches at two (matching the prompt) and only then adds headroom — a rule, not a bigger
+    budget.
+
 ## Limits of this approach
 
 - The candidate did not hand-write the code; the review happened at the level of design decisions, test

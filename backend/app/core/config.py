@@ -18,7 +18,7 @@ class Settings(BaseSettings):
     llm_api_key: str = ""
     llm_model: str = "nvidia/nemotron-3-super-120b-a12b:free"
     llm_fallback_models: str = ""  # comma-separated OpenRouter fallbacks (max 3)
-    llm_reasoning_effort: str = ""  # "", low, medium, high -> OpenRouter "reasoning" param
+    llm_reasoning_effort: str = "none"  # none|low|medium|high -> OpenRouter "reasoning" param; "" = not sent
     llm_temperature: float = 0.0
     llm_max_output_tokens: int = 700
     llm_input_price_per_m: float = 0.0  # US$ per 1M tokens, for equivalent-cost reporting
@@ -33,13 +33,14 @@ class Settings(BaseSettings):
     max_tool_iterations: int = 4
     max_tool_repairs: int = 2
     max_cost_usd_per_question: float = 0.05
-    max_tokens_per_question: int = 12000
+    max_tokens_per_question: int = 16000
     cb_failure_threshold: int = 3
     cb_open_s: float = 30.0
 
     # --- Retrieval ---
     retrieval_top_k: int = 8
-    tool_search_top_k: int = 5
+    tool_search_top_k: int = 4
+    max_search_calls: int = 2  # extra document searches per question (the prompt asks for at most two)
     history_turns: int = 4
 
     # --- Paths ---

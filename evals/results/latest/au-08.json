@@ -1,0 +1,76 @@
+{
+  "id": "au-08",
+  "set": "authorial",
+  "question": "Quantos sinistros estão atualmente com status Em regulação?",
+  "expected": "1.987 sinistros (consulta ao banco).",
+  "answer": "1987 sinistros estão atualmente com status Em regulação [10].",
+  "status": "complete",
+  "refusal_code": null,
+  "citations": [
+    {
+      "ordinal": 10,
+      "source_type": "database",
+      "doc_code": null,
+      "doc_title": "Banco de sinistros",
+      "doc_version": null,
+      "doc_status": null,
+      "section": null,
+      "page": null,
+      "chunk_id": null,
+      "snippet": "1987",
+      "sql": "SELECT COUNT(*) AS count FROM claims WHERE status = 'Em regulação'",
+      "row_count": 1,
+      "data_snapshot": "dados até 2026-02-11 (arquivo de 2026-09-07)"
+    }
+  ],
+  "tool_calls": [
+    {
+      "name": "query_claims_db",
+      "sql": "SELECT COUNT(*) AS count FROM claims WHERE status = 'Em regulação'"
+    }
+  ],
+  "error": null,
+  "provenance": {
+    "documents_cited": [],
+    "database_queried": true,
+    "database_snapshot": "dados até 2026-02-11 (arquivo de 2026-09-07)",
+    "index_built_at": "2026-09-07T21:11:31Z",
+    "sources_checked": [
+      "MAN-SIN-2025 v2.0 · §33 Anexo C - Perguntas Frequentes Ampliadas · p. 12",
+      "CG-AUTO-2024 v3.2 · §18 Atualização de Valores · p. 13",
+      "CG-RES-2024 v2.1 · §9 Atualização de Valores · p. 2",
+      "CG-EMP-2024 v1.4 · §9 Atualização de Valores · p. 2",
+      "CG-AUTO-2024 v3.2 · §7.3 Reajuste e Atualização de Valores · p. 9",
+      "MAN-SIN-2025 v2.0 · §29 Melhoria Contínua e Treinamento · p. 10",
+      "ATA-COM-2025-04 vfinal · §4 Casos em Análise · p. 1",
+      "CG-AUTO-2024 v3.2 · §1.1 Estrutura deste Documento · p. 1",
+      "CG-AUTO-2024 v3.2 · §3 Coberturas · p. 3",
+      "Banco de sinistros · 1 linha(s)"
+    ]
+  },
+  "latency_ms": 2998,
+  "metrics": {
+    "input_tokens": 7232,
+    "output_tokens": 78,
+    "cost_usd": 0.0,
+    "llm_calls": 2,
+    "retries": 0,
+    "tool_calls": 1,
+    "pii_hits": 0,
+    "served_model": "nvidia/nemotron-3-super-120b-a12b:free"
+  },
+  "checks": [
+    {
+      "name": "contains any of ['1987', '1.987']",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cites a database query",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "passed": true,
+  "ran_at": "2026-09-07T22:17:09+00:00"
+}

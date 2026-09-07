@@ -108,8 +108,8 @@ All variables are documented in [.env.example](.env.example). The important ones
 | `LLM_MAX_RETRIES` | 2 | retries for retryable failures that happen before any text streamed |
 | `CB_FAILURE_THRESHOLD` / `CB_OPEN_S` | 3 / 30 | circuit breaker: consecutive failures / open time |
 | `MAX_TOOL_ITERATIONS` / `MAX_TOOL_REPAIRS` | 4 / 2 | tool-loop bounds |
-| `MAX_COST_USD_PER_QUESTION` / `MAX_TOKENS_PER_QUESTION` | 0.05 / 12000 | budget caps (cost uses `LLM_*_PRICE_PER_M`) |
-| `LLM_REASONING_EFFORT` | `low` | OpenRouter `reasoning.effort` hint (empty = not sent) |
+| `MAX_COST_USD_PER_QUESTION` / `MAX_TOKENS_PER_QUESTION` | 0.05 / 16000 | budget caps (cost uses `LLM_*_PRICE_PER_M`) |
+| `LLM_REASONING_EFFORT` | `none` | OpenRouter `reasoning.effort` (`none` disables thinking: measured 10 s → 3.4 s per answer; empty = not sent) |
 
 ## Project layout
 

@@ -213,6 +213,7 @@ async def _generate(question: str, messages: list[dict[str, Any]], deps: Deps, r
     tool_choice = "auto"
     iterations = 0
     repairs = 0
+    searches = 0
     citation_repaired = False
 
     while True:
@@ -250,7 +251,12 @@ async def _generate(question: str, messages: list[dict[str, Any]], deps: Deps, r
             iterations += 1
             for tu in tool_uses:
                 run.tool_calls += 1
-                outcome = await execute_tool(tu, registry, deps.retriever, deps.claims_db, s.tool_search_top_k)
+                outcome = await execute_tool(
+                    tu, registry, deps.retriever, deps.claims_db, s.tool_search_top_k,
+                    searches_left=s.max_search_calls - searches,
+                )
+                if tu.name == "search_documents":
+                    searches += 1
                 if outcome.stage:
                     yield Stage(outcome.stage)
                 if outcome.refusal is not None:
